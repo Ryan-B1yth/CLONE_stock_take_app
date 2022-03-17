@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from .views import index
+from .views import create_new_product
 
 urlpatterns = [
-    path('', index.as_view(), name='index'),
+    path('', create_new_product, name='index'),
 ]

@@ -17,7 +17,7 @@ class Parts(models.Model):
     """
     Parts model
     """
-    item = models.ForeignKey(Stock, on_delete=models.CASCADE)
+    item = models.ManyToManyField(Stock)
     number_required = models.IntegerField()
 
     def __str__(self):
@@ -29,7 +29,7 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(max_length=100)
-    parts = models.ManyToManyField(Parts)
+    parts = models.ForeignKey(Parts, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name}'
