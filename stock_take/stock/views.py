@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-from .models import Product, Stock
-from .forms import ProductForm
-    # , PartsForm
+# from .models import Product, Stock
+from .forms import ProductForm, StockForm
 
 
 def create_new_product(request):
@@ -16,6 +15,24 @@ def create_new_product(request):
     context = {
         'product_form': product_form,
     }
+
+    return render(request, 'add_product.html', context)
+
+
+def create_new_stock_part(request):
+    """
+    Add a stock part
+    """
+    # Create instance of Stock model form
+    stock_form = StockForm(request.POST)
+    if request.method == 'POST':
+        stock_form.save()
+    context = {
+        'stock_form': stock_form,
+    }
+
+    return render(request, 'add_stock_part.html', context)
+
     
     
     # # Create instance of Parts model form

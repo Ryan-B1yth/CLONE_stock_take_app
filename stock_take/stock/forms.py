@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product
+from .models import Product, Stock
 
 
 class ProductForm(forms.ModelForm):
@@ -13,6 +13,17 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ['name']
 
+
+class StockForm(forms.ModelForm):
+    """
+    Add a part
+    """
+    class Meta:
+        """
+        Meta data
+        """
+        model = Stock
+        fields = '__all__'
 
 # class PartsForm(forms.ModelForm):
 #     """
