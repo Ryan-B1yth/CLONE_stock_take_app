@@ -13,15 +13,15 @@ class Stock(models.Model):
         return f'{self.name} | {self.code}'
 
 
-class Parts(models.Model):
-    """
-    Parts model
-    """
-    item = models.ManyToManyField(Stock)
-    number_required = models.IntegerField()
+# class Parts(models.Model):
+#     """
+#     Parts model
+#     """
+#     item = models.ForeignKey(Stock, on_delete=models.CASCADE)
+#     number_required = models.IntegerField()
 
-    def __str__(self):
-        return f'{self.item} | {self.number_required}'
+#     def __str__(self):
+#         return f'{self.item.name}'
 
 
 class Product(models.Model):
@@ -29,7 +29,8 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(max_length=100)
-    parts = models.ForeignKey(Parts, on_delete=models.CASCADE)
+    # parts = models.OneToOneField(Parts, on_delete=models.CASCADE)
+    parts = models.ManyToManyField(Stock)
 
     def __str__(self):
         return f'{self.name}'

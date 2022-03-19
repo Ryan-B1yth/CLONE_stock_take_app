@@ -11,15 +11,10 @@
    
     <form action="" method="POST">
         {% csrf_token %}
-        <label for="product_name">Product Name: </label>
-        {{ product_form.name }}
-
-        <label for="parts_needed">Parts needed: </label>
-        {{ parts_form.item }}
-
-        <label for="Number of each part required">Number required: </label>
-        {{ parts_form.number_required }}
+        {{ product_form }}
+        
         <input type="submit" value="Submit">
+        {{ parts_form.errors }}
     </form>
 </body>
 </html>

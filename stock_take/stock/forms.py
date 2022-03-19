@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Parts
+from .models import Product
 
 
 class ProductForm(forms.ModelForm):
@@ -14,17 +14,17 @@ class ProductForm(forms.ModelForm):
         fields = ['name']
 
 
-class PartsForm(forms.ModelForm):
-    """
-    Add parts to product
-    """
-    class Meta:
-        """
-        Meta data
-        """
-        model = Parts
-        fields = ['item', 'number_required']
+# class PartsForm(forms.ModelForm):
+#     """
+#     Add parts to product
+#     """
+#     class Meta:
+#         """
+#         Meta data
+#         """
+#         model = Parts
+#         fields = ['item', 'number_required']
 
-        widgets = {
-            'item': forms.CheckboxSelectMultiple
-        }
+#         widgets = {
+#             'item': forms.CheckboxSelectMultiple
+#         }
