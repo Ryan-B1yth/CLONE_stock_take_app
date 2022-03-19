@@ -4,9 +4,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base</title>
+    <title>Stock Take</title>
 </head>
 <body>
+    <h1>Add parts to products</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ parts_form }}
+        <input type="submit" value="Submit">
+    </form>
     
+
+
 </body>
 </html>

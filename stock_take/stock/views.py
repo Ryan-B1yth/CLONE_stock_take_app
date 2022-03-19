@@ -1,7 +1,18 @@
 from django.shortcuts import render
 from django.views.generic import ListView
-# from .models import Product, Stock
-from .forms import ProductForm, StockForm
+from .models import Product, Stock, Parts
+from .forms import ProductForm, StockForm, PartsForm
+
+
+def home(request):
+    """
+    Home page
+    """
+    products = Product.objects.all()
+    context = {
+        'products': products
+    }
+    return render(request, 'home.html', context)
 
 
 def create_new_product(request):
@@ -11,7 +22,8 @@ def create_new_product(request):
     # Create instance of Product model form
     product_form = ProductForm(request.POST)
     if request.method == 'POST':
-        product_form.save()
+        if product_form.is_valid():
+            product_form.save()
     context = {
         'product_form': product_form,
     }
@@ -26,15 +38,29 @@ def create_new_stock_part(request):
     # Create instance of Stock model form
     stock_form = StockForm(request.POST)
     if request.method == 'POST':
-        stock_form.save()
+        if stock_form.is_valid():
+            stock_form.save()
     context = {
         'stock_form': stock_form,
     }
 
     return render(request, 'add_stock_part.html', context)
 
-    
-    
+
+def add_parts_to_product(request):
+    """
+    Add parts to a product
+    """
+    parts_form = PartsForm(request.POST)
+    if request.method == 'POST':
+        if parts_form.is_valid():
+            parts_form.save()
+    context = {
+        'parts_form': parts_form,
+    }
+
+    return render(request, 'link_parts_to_product.html', context)
+
     # # Create instance of Parts model form
     # parts_form = PartsForm(request.POST)
     # if request.method == 'POST':
@@ -51,4 +77,4 @@ def create_new_stock_part(request):
     #     'parts_form': parts_form,
     #     'items': items
     # }
-    return render(request, 'index.html', context)
+    

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Product, Stock
+from .models import Product, Stock, Parts
 
 
 class ProductForm(forms.ModelForm):
@@ -25,17 +25,18 @@ class StockForm(forms.ModelForm):
         model = Stock
         fields = '__all__'
 
-# class PartsForm(forms.ModelForm):
-#     """
-#     Add parts to product
-#     """
-#     class Meta:
-#         """
-#         Meta data
-#         """
-#         model = Parts
-#         fields = ['item', 'number_required']
 
-#         widgets = {
-#             'item': forms.CheckboxSelectMultiple
-#         }
+class PartsForm(forms.ModelForm):
+    """
+    Add parts to product
+    """
+    class Meta:
+        """
+        Meta data
+        """
+        model = Parts
+        fields = '__all__'
+
+        # widgets = {
+        #     'item': forms.CheckboxSelectMultiple
+        # }
