@@ -25,4 +25,6 @@ class PartsForm(forms.ModelForm):
         model = Parts
         fields = ['item', 'number_required']
 
-        
+        widgets = {
+            'item': forms.CheckboxSelectMultiple
+        }

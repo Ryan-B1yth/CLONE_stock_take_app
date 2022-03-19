@@ -22,7 +22,7 @@ class Parts(models.Model):
 
     def __str__(self):
         return f'{self.item} | {self.number_required}'
-    
+
 
 class Product(models.Model):
     """
@@ -33,5 +33,3 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}'
-
-

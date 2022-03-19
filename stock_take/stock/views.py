@@ -8,14 +8,15 @@ def create_new_product(request):
     """
     Add a product
     """
+    # Create instance of Product model form
+    product_form = ProductForm(request.POST)
+    # Create instance of Parts model form
+    parts_form = PartsForm(request.POST)
     if request.method == 'POST':
-        product_form = ProductForm(request.POST)
-        parts_form = PartsForm(request.POST)
+        # Validate
         if product_form.is_valid() and parts_form.is_valid():
             product_form.save(commit=False)
             parts_form.save(commit=False)
-    product_form = ProductForm()
-    parts_form = PartsForm()
     context = {
         'product_form': product_form,
         'parts_form': parts_form,
