@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, UpdateView
 from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
 
@@ -9,8 +9,10 @@ def home(request):
     Home page
     """
     products = Product.objects.all()
+    stock = Stock.objects.all()
     context = {
-        'products': products
+        'products': products,
+        'stock':stock,
     }
     return render(request, 'home.html', context)
 
@@ -71,6 +73,28 @@ def product_detail(request, pk):
         'product_parts': product_parts,
     }
     return render(request, 'product_detail.html', context)
+
+
+class UpdateStock(UpdateView):
+    """
+    Update stock
+    """
+    model = Stock
+    template_name = 'update_stock.html'
+    form_class = StockForm
+
+# def update_stock(request):
+#     """
+#     Update stock
+#     """
+#     stock_form = StockForm(request.POST)
+#     if request.method == 'POST':
+#         if stock_form.is_valid():
+#             stock_form.save()
+#     context = {
+#         'stock_form': stock_form,
+#     }
+#     return render(request, 'update_stock.html', context)
 
 
     # # Create instance of Parts model form
