@@ -18,6 +18,28 @@ def home(request):
     return render(request, 'home.html', context)
 
 
+def product_page(request):
+    """
+    Home page
+    """
+    products = Product.objects.all()
+    context = {
+        'products': products,
+    }
+    return render(request, 'products.html', context)
+
+
+def stock_page(request):
+    """
+    Stock page
+    """
+    stock = Stock.objects.all()
+    context = {
+        'stock': stock,
+    }
+    return render(request, 'stock.html', context)
+
+
 def create_new_product(request):
     """
     Add a product

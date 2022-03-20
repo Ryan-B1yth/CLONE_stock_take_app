@@ -5,6 +5,8 @@ from .views import (
     create_new_stock_part,
     add_parts_to_product,
     home,
+    stock_page,
+    product_page,
     product_detail,
     UpdateStock,
     DeletePartView,
@@ -14,6 +16,8 @@ from .views import (
 
 urlpatterns = [
     path('', home, name='home'),
+    path('stock/', stock_page, name='stock'),
+    path('products/', product_page, name='products'),
     path('add-product/', create_new_product, name='add_new_product'),
     path('add-stock/', create_new_stock_part, name='add_new_stock_part'),
     path('link/', add_parts_to_product, name='add_parts_to_product'),
