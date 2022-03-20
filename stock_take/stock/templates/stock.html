@@ -8,13 +8,22 @@
 </head>
 <body>
     <h2>Stock</h2>
-    <ul>
-    {% for item in stock %}
-        <li>
-            {{ item.name }} | {{ item.code }} | {{ item.number_in_stock }}
-            <a href="{% url 'update-stock' item.pk %}">Update stock</a>
-        </li>
-    {% endfor %}
-    </ul>
+
+    <table>
+        <tr>
+            <th>Part name</th>
+            <th>Part code</th>
+            <th>Number in stock</th>
+            <th></th>
+        </tr>
+        {% for item in stock %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.code }}</td>
+                <td>{{ item.number_in_stock }}</td>
+                <td><a href="{% url 'update-stock' item.pk %}">Update</a></td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
