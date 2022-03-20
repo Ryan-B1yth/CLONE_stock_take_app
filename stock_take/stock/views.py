@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView, UpdateView
+from django.views.generic import ListView, UpdateView, DeleteView
+from django.urls import reverse_lazy
 from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
 
@@ -12,7 +13,7 @@ def home(request):
     stock = Stock.objects.all()
     context = {
         'products': products,
-        'stock':stock,
+        'stock': stock,
     }
     return render(request, 'home.html', context)
 
@@ -69,8 +70,10 @@ def product_detail(request, pk):
     Show all parts to product
     """
     product_parts = Parts.objects.filter(product_part_belongs_to=pk)
+    product = Product.objects.filter(id=pk)
     context = {
         'product_parts': product_parts,
+        'product': product,
     }
     return render(request, 'product_detail.html', context)
 
@@ -82,6 +85,36 @@ class UpdateStock(UpdateView):
     model = Stock
     template_name = 'update_stock.html'
     form_class = StockForm
+
+
+class DeleteStockView(DeleteView):
+    """
+    Delete an item from stock model
+    """
+    model = Stock
+    template_name = 'delete_stock.html'
+    success_url = reverse_lazy('home')
+
+
+class DeletePartView(DeleteView):
+    """
+    Delete a part from part model
+    """
+    model = Parts
+    # template_name = 'delete_part.html'
+    success_url = reverse_lazy('home')
+
+
+class DeleteProductView(DeleteView):
+    """
+    Delete aproduct from product model
+    """
+    model = Product
+    # template_name = 'delete_product.html'
+    success_url = reverse_lazy('home')
+
+
+
 
 # def update_stock(request):
 #     """

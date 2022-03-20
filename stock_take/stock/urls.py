@@ -7,6 +7,9 @@ from .views import (
     home,
     product_detail,
     UpdateStock,
+    DeletePartView,
+    DeleteProductView,
+    DeleteStockView
     )
 
 urlpatterns = [
@@ -15,5 +18,20 @@ urlpatterns = [
     path('add-stock/', create_new_stock_part, name='add_new_stock_part'),
     path('link/', add_parts_to_product, name='add_parts_to_product'),
     path('product-detail/<int:pk>', product_detail, name='product-detail'),
-    path('adjust-stock/<int:pk>', UpdateStock.as_view(), name='update-stock')
+    path('adjust-stock/<int:pk>', UpdateStock.as_view(), name='update-stock'),
+    path(
+        'delete-part/<int:pk>',
+        DeletePartView.as_view(),
+        name='delete-part'
+        ),
+    path(
+        'delete-stock/<int:pk>',
+        DeleteStockView.as_view(),
+        name='delete-stock'
+        ),
+    path(
+        'delete-product/<int:pk>',
+        DeleteProductView.as_view(),
+        name='delete-product'
+        ),
 ]

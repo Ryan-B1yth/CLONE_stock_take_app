@@ -7,10 +7,25 @@
     <title>Stock take</title>
 </head>
 <body>
-    <ul>
-    {% for part in product_parts %}
-        <li>{{ part.id }}{{ part }}</li>
+    {% for name in product %}
+    <h1>{{ name }} parts</h1>
     {% endfor %}
-    </ul>
+
+    <table>
+        <tr>
+            <th>Part name</th>
+            <th>Part code</th>
+            <th>Number required</th>
+            <th>Number in stock</th>
+        </tr>
+        {% for part in product_parts %}
+        <tr>
+            <td>{{ part.item.name }}</td>
+            <td>{{ part.item.code }}</td>
+            <td>{{ part.number_required }}</td>
+            <td>{{ part.item.number_in_stock }}</td>
+        {% endfor %}
+        </tr>
+    </table>
 </body>
 </html>
