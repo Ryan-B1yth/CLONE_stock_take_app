@@ -61,6 +61,18 @@ def add_parts_to_product(request):
 
     return render(request, 'link_parts_to_product.html', context)
 
+
+def product_detail(request, pk):
+    """
+    Show all parts to product
+    """
+    product_parts = Parts.objects.filter(product_part_belongs_to=pk)
+    context = {
+        'product_parts': product_parts,
+    }
+    return render(request, 'product_detail.html', context)
+
+
     # # Create instance of Parts model form
     # parts_form = PartsForm(request.POST)
     # if request.method == 'POST':
