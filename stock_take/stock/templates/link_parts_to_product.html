@@ -7,7 +7,7 @@
     <title>Stock Take</title>
 </head>
 <body>
-    <h1>Add parts to products</h1>
+    <h1>Add parts to {{ default_product }}</h1>
     <form action="" method="POST">
         {% csrf_token %}
         {{ parts_form }}

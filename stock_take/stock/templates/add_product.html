@@ -11,7 +11,7 @@
    
     <form action="" method="POST">
         {% csrf_token %}
-        {{ product_form }}
+        {{ form.as_p }}
         
         <input type="submit" value="Submit">
         {{ parts_form.errors }}

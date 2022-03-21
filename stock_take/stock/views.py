@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView, UpdateView, DeleteView
+from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
@@ -40,20 +40,30 @@ def stock_page(request):
     return render(request, 'stock.html', context)
 
 
-def create_new_product(request):
+# def create_new_product(request):
+#     """
+#     Add a product
+#     """
+#     # Create instance of Product model form
+#     product_form = ProductForm(request.POST)
+#     if request.method == 'POST':
+#         if product_form.is_valid():
+#             product_form.save()
+#     context = {
+#         'product_form': product_form,
+#     }
+
+#     return render(request, 'add_product.html', context)
+
+
+class CreateNewProduct(CreateView):
     """
     Add a product
     """
-    # Create instance of Product model form
-    product_form = ProductForm(request.POST)
-    if request.method == 'POST':
-        if product_form.is_valid():
-            product_form.save()
-    context = {
-        'product_form': product_form,
-    }
-
-    return render(request, 'add_product.html', context)
+    model = Product
+    form_class = ProductForm()
+    template_name = 'add_product.html'
+    success_url = 'link/'
 
 
 def create_new_stock_part(request):
@@ -77,10 +87,12 @@ def add_parts_to_product(request):
     Add parts to a product
     """
     parts_form = PartsForm(request.POST)
+    default_product = Product.objects.latest('id')
     if request.method == 'POST':
         if parts_form.is_valid():
             parts_form.save()
     context = {
+        'default_product': default_product,
         'parts_form': parts_form,
     }
 
