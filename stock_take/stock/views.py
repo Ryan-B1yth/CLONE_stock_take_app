@@ -61,7 +61,7 @@ class CreateNewProduct(CreateView):
     Add a product
     """
     model = Product
-    form_class = ProductForm()
+    form_class = ProductForm
     template_name = 'add_product.html'
     success_url = 'link/'
 
@@ -86,13 +86,16 @@ def add_parts_to_product(request):
     """
     Add parts to a product
     """
-    parts_form = PartsForm(request.POST)
     default_product = Product.objects.latest('id')
+    parts_form = PartsForm(
+        request.POST or None,
+        initial={'product_part_belongs_to': default_product},
+        )
     if request.method == 'POST':
         if parts_form.is_valid():
             parts_form.save()
     context = {
-        'default_product': default_product,
+        # 'default_product': default_product,
         'parts_form': parts_form,
     }
 

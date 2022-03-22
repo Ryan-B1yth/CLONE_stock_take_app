@@ -37,6 +37,6 @@ class PartsForm(forms.ModelForm):
         model = Parts
         fields = '__all__'
 
-        # widgets = {
-        #     'item': forms.CheckboxSelectMultiple
-        # }
+        widgets = {
+            'product_part_belongs_to': forms.Select()
+        }
