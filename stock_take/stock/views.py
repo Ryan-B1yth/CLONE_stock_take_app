@@ -95,11 +95,31 @@ def add_parts_to_product(request):
         if parts_form.is_valid():
             parts_form.save()
     context = {
-        # 'default_product': default_product,
+        'default_product': default_product,
         'parts_form': parts_form,
     }
 
     return render(request, 'link_parts_to_product.html', context)
+
+
+def add_more_parts(request, pk):
+    """
+    Add parts to a product
+    """
+    default_product = Product.objects.filter(id=pk).latest('id')
+    parts_form = PartsForm(
+        request.POST or None,
+        initial={'product_part_belongs_to': default_product},
+        )
+    if request.method == 'POST':
+        if parts_form.is_valid():
+            parts_form.save()
+    context = {
+        'default_product': default_product,
+        'parts_form': parts_form,
+    }
+
+    return render(request, 'add_more_parts.html', context)
 
 
 def product_detail(request, pk):

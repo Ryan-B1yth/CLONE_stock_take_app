@@ -38,5 +38,5 @@ class PartsForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            'product_part_belongs_to': forms.Select()
+            # 'product_part_belongs_to': forms.HiddenInput()
         }

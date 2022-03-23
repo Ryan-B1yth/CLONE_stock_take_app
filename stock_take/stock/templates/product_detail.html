@@ -28,6 +28,7 @@
         {% endfor %}
     </table>
 
+    <button><a href="{% url 'add_more_parts' product.pk %}">Add a part</a></button>
     <button><a href="{% url 'delete-product' product.id %}">Delete</a></button>
 </body>
 </html>
