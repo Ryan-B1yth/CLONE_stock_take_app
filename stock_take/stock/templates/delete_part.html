@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stock adjust</title>
+    <title>Delete parts</title>
 </head>
 <body>
-    <h1>Stock Adjust</h1>
+    <h1>Remove {{ parts.item }} from {{ parts.product_part_belongs_to }}</h1>
 
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
 
-    <button><a href="{% url 'delete-stock' stock.id %}">Delete</a></button>
+        <input type="submit" value="Remove">
+    </form>
 </body>
 </html>

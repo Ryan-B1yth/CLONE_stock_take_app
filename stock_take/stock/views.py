@@ -107,7 +107,7 @@ def product_detail(request, pk):
     Show all parts to product
     """
     product_parts = Parts.objects.filter(product_part_belongs_to=pk)
-    product = Product.objects.filter(id=pk)
+    product = Product.objects.filter(id=pk).first()
     context = {
         'product_parts': product_parts,
         'product': product,
@@ -138,7 +138,7 @@ class DeletePartView(DeleteView):
     Delete a part from part model
     """
     model = Parts
-    # template_name = 'delete_part.html'
+    template_name = 'delete_part.html'
     success_url = reverse_lazy('home')
 
 
@@ -147,7 +147,7 @@ class DeleteProductView(DeleteView):
     Delete aproduct from product model
     """
     model = Product
-    # template_name = 'delete_product.html'
+    template_name = 'delete_product.html'
     success_url = reverse_lazy('home')
 
 

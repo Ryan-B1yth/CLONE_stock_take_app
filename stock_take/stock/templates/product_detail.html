@@ -7,9 +7,8 @@
     <title>Stock take</title>
 </head>
 <body>
-    {% for name in product %}
-    <h1>{{ name }} parts</h1>
-    {% endfor %}
+
+    <h1>{{ product }} parts</h1>
 
     <table>
         <tr>
@@ -24,8 +23,11 @@
             <td>{{ part.item.code }}</td>
             <td>{{ part.number_required }}</td>
             <td>{{ part.item.number_in_stock }}</td>
-        {% endfor %}
+            <td><a href="{% url 'delete-part' part.id %}">Remove</a></td>
         </tr>
+        {% endfor %}
     </table>
+
+    <button><a href="{% url 'delete-product' product.id %}">Delete</a></button>
 </body>
 </html>
