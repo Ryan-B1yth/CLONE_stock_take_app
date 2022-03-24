@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic');
+
+:root {
+    --clr-mix-calm: 120deg, #f1e9dc 2%, #aacec9, #73ad8b 90%;
+    --shadow-s: 0 5px 7px 0 rgba(0, 0, 0, .2), 0 5px 7px 0 rgba(0, 0, 0, .2);
+    --shadow-tl: 5px 5px 5px rgba(0, 0, 0, .2), -5px 5px 5px rgba(0, 0, 0, .2);
+    --header-height: 5em;
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style-type: none;
+    color: #000000;
+    font-family: 'Nanum Gothic', 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 300;
+}
+
+.main-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--header-height);
+    background: linear-gradient(var(--clr-mix-calm));
+    box-shadow: var(--shadow-s);
+}
+
+.main-header h1 {
+    color: #FFFFFF;
+    text-shadow: var(--shadow-tl);
+}
+
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: calc(100vh - var(--header-height));
+}
