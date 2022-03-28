@@ -29,7 +29,7 @@
     box-shadow: var(--shadow-s);
 }
 
-.main-header h1 {
+.main-header h1 a {
     color: #FFFFFF;
     text-shadow: var(--shadow-tl);
 }

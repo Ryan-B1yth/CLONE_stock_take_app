@@ -1,24 +1,38 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/grid.css' %}">
+{% endblock %}
 
 {% block content %}
 
     <h2>Stock</h2>
     <a href="{% url 'add_new_stock_part' %}">Add new stock item</a>
-    <table>
-        <tr>
-            <th>Part name</th>
-            <th>Part code</th>
-            <th>Number in stock</th>
-            <th></th>
-        </tr>
+
+    <div class="grid">
+        <div class="grid-headings">
+            <h3>Part name</h3>
+            <h3>Part code</h3>
+            <h3>Number in stock</h3>
+        </div>
+        
         {% for item in stock %}
-            <tr>
-                <td>{{ item.name }}</td>
-                <td>{{ item.code }}</td>
-                <td>{{ item.number_in_stock }}</td>
-                <td><a href="{% url 'update-stock' item.pk %}">Update</a></td>
-            </tr>
+        <div class="grid-row">
+            <div class="item-name-content">
+                <h3>{{ item.name }}</h3>
+            </div>
+            <div class="item-code-content">
+                <h3>{{ item.code }}</h3>
+            </div>
+            <div class="item-number-content">
+                <h3>{{ item.number_in_stock }}</h3>
+            </div>
+            <div class="update">
+                <h3><a href="{% url 'update-stock' item.pk %}">Update</a></h3>
+            </div>
+        </div>
         {% endfor %}
-    </table>
+    </div>
 
 {% endblock %}

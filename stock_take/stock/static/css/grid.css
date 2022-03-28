@@ -1,0 +1,27 @@
+.grid {
+    display: grid;
+    min-width: 80%;
+    max-width: 90%;
+    margin: 0 auto;
+    grid-auto-flow: row;
+    grid-column: repeat(12, 1fr);
+}
+
+.grid-headings {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    height: 3em;
+}
+
+.grid-row {
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, 1fr);
+    height: 3em;
+}
+
+.update {
+    text-align: end;
+}
+
