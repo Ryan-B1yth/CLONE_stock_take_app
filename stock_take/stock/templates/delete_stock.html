@@ -8,13 +8,16 @@
 
 {% block content %}
 
-    <h1>Delete {{ stock.name }} | {{ stock.code }}</h1>
+    <h1>Delete {{ stock.name }} | {{ stock.code }}?</h1>
+    <h2>This action cannot be undone.</h2>
 
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
 
-        <input class="btn btn-delete btn-hover" type="submit" value="Delete">
+        <div class="delete-button">
+            <input class="btn btn-delete btn-hover" type="submit" value="Delete">
+        </div>
     </form>
 
 {% endblock %}

@@ -3,6 +3,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock %}
 
@@ -14,7 +15,9 @@
         {% csrf_token %}
         {{ form.as_p }}
 
-        <input class="btn btn-delete btn-hover" type="submit" value="Delete">
+        <div class="delete-button">
+            <input class="btn btn-delete btn-hover" type="submit" value="Delete">
+        </div>
     </form>
 
 {% endblock %}

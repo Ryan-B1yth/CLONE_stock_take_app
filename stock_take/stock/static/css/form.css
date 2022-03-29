@@ -13,7 +13,7 @@
 
 form {
     width: min-content;
-
+    margin: 0 auto;
 }
 
 form ul li, form label {
