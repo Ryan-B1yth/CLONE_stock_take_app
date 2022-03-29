@@ -1,13 +1,31 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/product.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
+
 {% block content %}
 
     <h2>Products</h2>
     <a href="{% url 'add_new_product' %}">Add new product</a>
-    {% for product in products %}
-        <ul>
-            <li><a href="{% url 'product-detail' product.id %}">{{ product }}</a></li>
-        </ul>
-    {% endfor %}
+    <div class="product-container">
+        {% for product in products %}
+            <div class="product-row">
+                <div class="product">
+                    <a href="{% url 'product-detail' product.id %}">{{ product }}</a>
+                </div>
+                <div class="orders">
+                    Coming soon
+                </div>
+                <div class="unit-number">
+                    Units can be made: XX
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    
 
 {% endblock %}
