@@ -11,7 +11,7 @@ class Stock(models.Model):
     number_in_stock = models.IntegerField()
 
     def __str__(self):
-        return f'{self.name} | {self.code}'
+        return f'{self.name} | {self.code} | {self.number_in_stock}'
     
     def get_absolute_url(self):
         return reverse('home')

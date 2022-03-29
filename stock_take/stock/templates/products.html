@@ -21,11 +21,16 @@
                     Coming soon
                 </div>
                 <div class="unit-number">
-                    Units can be made: XX
+                    {% for key, value in number_to_be_made.items %}
+                        {% if product.id == key %}
+                            Units can be made: {{ value }}
+                        {% endif %}
+                    {% endfor %}
+
                 </div>
             </div>
         {% endfor %}
     </div>
-    
+
 
 {% endblock %}

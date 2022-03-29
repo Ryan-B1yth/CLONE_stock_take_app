@@ -3,7 +3,7 @@ from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
-
+import math
 
 def home(request):
     """
@@ -20,11 +20,43 @@ def home(request):
 
 def product_page(request):
     """
-    Home page
+    Product page
     """
     products = Product.objects.all()
+    # parts = Parts.objects.all()
+    number_to_be_made = {}
+
+    for product in products:
+        # Get the parts for the products
+        parts = Parts.objects.filter(product_part_belongs_to=product.id)
+        units = {}
+        amount = []
+        total_units_to_be_made = {}
+        for i in parts:
+            # Divide the number of each part in stock by
+            # the number of each part required
+            units_to_make = (i.item.number_in_stock / i.number_required)
+            units_to_make = math.floor(units_to_make)
+            units[i.product_part_belongs_to] = units_to_make
+            amount.append(units_to_make)
+        # Returns multiple amounts for each product
+        # Sort and return the first (smallest)
+        amount.sort()
+        amount = amount[:1]
+        # Set empty lists to 0
+        if len(amount) == 0 or amount[0] == 0:
+            total_units_to_be_made = 0
+        else:
+            # Integer the others
+            for num in amount:
+                int(num)
+                total_units_to_be_made = num
+        # Add key, value pairs to the dict
+        number_to_be_made[product.id] = total_units_to_be_made
+
     context = {
         'products': products,
+        'number_to_be_made': number_to_be_made
     }
     return render(request, 'products.html', context)
 
@@ -38,22 +70,6 @@ def stock_page(request):
         'stock': stock,
     }
     return render(request, 'stock.html', context)
-
-
-# def create_new_product(request):
-#     """
-#     Add a product
-#     """
-#     # Create instance of Product model form
-#     product_form = ProductForm(request.POST)
-#     if request.method == 'POST':
-#         if product_form.is_valid():
-#             product_form.save()
-#     context = {
-#         'product_form': product_form,
-#     }
-
-#     return render(request, 'add_product.html', context)
 
 
 class CreateNewProduct(CreateView):
@@ -169,38 +185,3 @@ class DeleteProductView(DeleteView):
     model = Product
     template_name = 'delete_product.html'
     success_url = reverse_lazy('home')
-
-
-
-
-# def update_stock(request):
-#     """
-#     Update stock
-#     """
-#     stock_form = StockForm(request.POST)
-#     if request.method == 'POST':
-#         if stock_form.is_valid():
-#             stock_form.save()
-#     context = {
-#         'stock_form': stock_form,
-#     }
-#     return render(request, 'update_stock.html', context)
-
-
-    # # Create instance of Parts model form
-    # parts_form = PartsForm(request.POST)
-    # if request.method == 'POST':
-    #     # Validate
-    #     if product_form.is_valid() and parts_form.is_valid():
-    #         product_form.save(commit=False)
-    #         parts_form.save(commit=False)
-    #     else: 
-    #         # print(product_form.errors)
-    #         print(parts_form.errors)
-    # items = Parts.objects.all()
-    # context = {
-    #     'product_form': product_form,
-    #     'parts_form': parts_form,
-    #     'items': items
-    # }
-    
