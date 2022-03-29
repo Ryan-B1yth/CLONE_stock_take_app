@@ -1,4 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
 
 {% block content %}
 
@@ -8,7 +14,7 @@
         {% csrf_token %}
         {{ form.as_p }}
 
-        <input type="submit" value="Delete">
+        <input class="btn btn-delete btn-hover" type="submit" value="Delete">
     </form>
 
 {% endblock %}
