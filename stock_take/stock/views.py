@@ -107,13 +107,19 @@ def add_parts_to_product(request):
         request.POST or None,
         initial={'product_part_belongs_to': default_product},
         )
+    added_part = []
+    context = {}
     if request.method == 'POST':
         if parts_form.is_valid():
             parts_form.save()
-    context = {
-        'default_product': default_product,
-        'parts_form': parts_form,
-    }
+        if len(added_part) == 0:
+            added = Parts.objects.latest('id')
+            added_part.append(added.item.name)
+            added_part = added_part[0]
+            context['added_part'] = added_part
+
+    context['default_product'] = default_product
+    context['parts_form'] = parts_form
 
     return render(request, 'link_parts_to_product.html', context)
 
