@@ -2,7 +2,7 @@
     display: grid;
     min-width: 80%;
     max-width: 90%;
-    margin: 0 auto;
+    margin: 2em auto;
     grid-auto-flow: row;
     grid-column: repeat(12, 1fr);
 }

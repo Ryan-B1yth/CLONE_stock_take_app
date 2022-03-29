@@ -9,8 +9,12 @@
 
 {% block content %}
 
-    <h2>Products</h2>
-    <a href="{% url 'add_new_product' %}">Add new product</a>
+    <h1>Products</h1>
+
+    <div class="add-new btn btn-submit btn-hover">
+        <a href="{% url 'add_new_product' %}">Add new product</a>
+    </div>
+
     <div class="product-container">
         {% for product in products %}
             <div class="product-row">
