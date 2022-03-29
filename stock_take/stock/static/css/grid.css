@@ -9,7 +9,6 @@
 
 .grid-headings {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
     height: 3em;
 }
 
@@ -17,11 +16,32 @@
     display: grid;
     align-items: center;
     grid-auto-flow: column;
-    grid-template-columns: repeat(4, 1fr);
     height: 3em;
+    border-top: 1px solid #000000;
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+
 }
 
 .update {
     text-align: end;
+}
+
+.grid-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 3em 0;
+}
+
+.grid-btn {
+    width: 20%;
+    height: 3em;
+    border-radius: 5px;
 }
 

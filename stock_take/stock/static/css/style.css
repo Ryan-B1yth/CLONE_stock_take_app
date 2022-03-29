@@ -41,6 +41,10 @@
     height: calc(100vh - var(--header-height));
 }
 
+.btn {
+    border: none;
+}
+
 .btn-delete {
     background-color: #f0c7c785;
 }

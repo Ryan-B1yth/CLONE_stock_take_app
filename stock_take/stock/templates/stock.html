@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/grid.css' %}">
 {% endblock %}
 
@@ -11,14 +12,14 @@
     <a href="{% url 'add_new_stock_part' %}">Add new stock item</a>
 
     <div class="grid">
-        <div class="grid-headings">
+        <div class="grid-headings grid-4">
             <h3>Part name</h3>
             <h3>Part code</h3>
             <h3>Number in stock</h3>
         </div>
         
         {% for item in stock %}
-        <div class="grid-row">
+        <div class="grid-row grid-4">
             <div class="item-name-content">
                 <h3>{{ item.name }}</h3>
             </div>

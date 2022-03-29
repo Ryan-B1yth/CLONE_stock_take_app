@@ -3,31 +3,48 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/grid.css' %}">
+
 {% endblock %}
 
 {% block content %}
 
     <h1>{{ product }} parts</h1>
 
-    <table>
-        <tr>
-            <th>Part name</th>
-            <th>Part code</th>
-            <th>Number required</th>
-            <th>Number in stock</th>
-        </tr>
-        {% for part in product_parts %}
-        <tr>
-            <td>{{ part.item.name }}</td>
-            <td>{{ part.item.code }}</td>
-            <td>{{ part.number_required }}</td>
-            <td>{{ part.item.number_in_stock }}</td>
-            <td><a href="{% url 'delete-part' part.id %}">Remove</a></td>
-        </tr>
-        {% endfor %}
-    </table>
+    <div class="grid">
+        <div class="grid-headings grid-5">
+            <h3>Part name</h3>
+            <h3>Part code</h3>
+            <h3>Number required</h3>
+            <h3>Number in stock</h3>
+        </div>
 
-    <button><a href="{% url 'add_more_parts' product.pk %}">Add a part</a></button>
-    <button><a href="{% url 'delete-product' product.id %}">Delete</a></button>
+        {% for part in product_parts %}
+        <div class="grid-row grid-5">
+            <div class="item-name-content">
+                <h3>{{ part.item.name }}</h3>
+            </div>
+            <div class="item-code-content">
+                <h3>{{ part.item.code }}</h3>
+            </div>
+            <div class="item-required-content">
+                <h3>{{ part.number_required }}</h3>
+            </div>
+            <div class="item-number-content">
+                <h3>{{ part.item.number_in_stock }}</h3>
+            </div>
+            <div class="update">
+                <h3><a href="{% url 'delete-part' part.id %}">Remove</a></h3>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="grid-buttons">
+            <button class="btn grid-btn btn-submit btn-hover"><a href="{% url 'add_more_parts' product.pk %}">Add a part</a></button>
+            <button class="btn grid-btn btn-delete btn-hover"><a href="{% url 'delete-product' product.id %}">Delete</a></button>
+        </div>
+        
+    </div>
+
+    
 
 {% endblock %}
