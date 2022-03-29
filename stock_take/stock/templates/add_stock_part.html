@@ -1,15 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
 
 {% block content %}
 
     <h1>Add a stock part</h1>
-   
-    <form action="" method="POST">
-        {% csrf_token %}
-        <table>{{ stock_form }}</table>
-        
-        <input type="submit" value="Submit">
-        <!-- {{ stock_form.errors }} -->
-    </form>
+    <div class="form-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ stock_form }}
+            
+            <input class="btn" type="submit" value="Submit">
+        </form>
+    </div>
+    
 
 {% endblock %}

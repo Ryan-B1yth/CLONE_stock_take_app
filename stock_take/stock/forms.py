@@ -13,6 +13,14 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = ['name']
 
+        widgets = {
+            'name': forms.TextInput(
+                attrs={
+                    'placeholder': 'Product Name'
+                }
+            )
+        }
+
 
 class StockForm(forms.ModelForm):
     """
@@ -24,6 +32,24 @@ class StockForm(forms.ModelForm):
         """
         model = Stock
         fields = '__all__'
+
+        widgets = {
+            'name': forms.TextInput(
+                attrs={
+                    'placeholder': 'Stock Item Name'
+                }
+            ),
+            'code': forms.TextInput(
+                attrs={
+                    'placeholder': 'Stock Item Code'
+                }
+            ),
+            'number_in_stock': forms.TextInput(
+                attrs={
+                    'placeholder': 'Number in Stock'
+                }
+            )
+        }
 
 
 class PartsForm(forms.ModelForm):
@@ -38,5 +64,10 @@ class PartsForm(forms.ModelForm):
         fields = '__all__'
 
         widgets = {
-            # 'product_part_belongs_to': forms.HiddenInput()
+            'product_part_belongs_to': forms.HiddenInput(),
+            'number_required': forms.TextInput(
+                attrs={
+                    'placeholder': 'Number Required'
+                }
+            )
         }

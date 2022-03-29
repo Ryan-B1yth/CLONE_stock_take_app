@@ -1,12 +1,21 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
 
 {% block content %}
 
     <h1>Add parts to {{ default_product }}</h1>
-    <form action="" method="POST">
-        {% csrf_token %}
-        {{ parts_form }}
-        <input type="submit" value="Submit">
-    </form>
+    
+    <div class="form-container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ parts_form }}
+            <input class="btn" type="submit" value="Submit">
+        </form>
+    </div>
+    
     
 {% endblock %}
