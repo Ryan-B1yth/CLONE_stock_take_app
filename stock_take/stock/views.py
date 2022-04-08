@@ -5,6 +5,7 @@ from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
 import math
 
+
 def home(request):
     """
     Home page

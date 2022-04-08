@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 
 class Stock(models.Model):
     """
@@ -9,6 +9,7 @@ class Stock(models.Model):
     name = models.CharField(max_length=100)
     code = models.CharField(max_length=100)
     number_in_stock = models.IntegerField()
+    company = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return f'{self.name} | {self.code} | {self.number_in_stock}'
@@ -24,6 +25,7 @@ class Product(models.Model):
     name = models.CharField(max_length=100)
     # parts = models.OneToOneField(Parts, on_delete=models.CASCADE)
     stock_parts = models.ManyToManyField(Stock)
+    company = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return f'{self.name}'
@@ -38,6 +40,7 @@ class Parts(models.Model):
         )
     item = models.ForeignKey(Stock, on_delete=models.CASCADE)
     number_required = models.IntegerField()
+    company = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
         return f'{self.product_part_belongs_to} {self.item.name} {self.number_required}'
