@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    <h1>{{ current_user|title }} Products</h1>
+    <h1>{{ default_user|title }} Products</h1>
 
     <div class="add-new btn btn-submit btn-hover">
         <a href="{% url 'add_new_product' %}">Add new product</a>

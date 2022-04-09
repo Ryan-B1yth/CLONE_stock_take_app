@@ -21,8 +21,8 @@ def product_page(request):
     """
     Product page
     """
-    current_user = request.user
-    products = Product.objects.filter(company=current_user.id)
+    default_user = request.user
+    products = Product.objects.filter(company=default_user)
     number_to_be_made = {}
 
     for product in products:
@@ -58,7 +58,7 @@ def product_page(request):
     context = {
         'products': products,
         'number_to_be_made': number_to_be_made,
-        'current_user': current_user
+        'default_user': default_user
     }
     return render(request, 'products.html', context)
 
@@ -67,8 +67,8 @@ def stock_page(request):
     """
     Stock page
     """
-    current_user = request.user
-    stock = Stock.objects.filter(company=current_user.id)
+    default_user = request.user
+    stock = Stock.objects.filter(company=default_user)
     context = {
         'stock': stock,
     }
@@ -185,8 +185,9 @@ def product_detail(request, pk):
     """
     Show all parts to product
     """
-    product_parts = Parts.objects.filter(product_part_belongs_to=pk)
-    product = Product.objects.filter(id=pk).first()
+    default_user = request.user
+    product_parts = Parts.objects.filter(company=default_user).filter(product_part_belongs_to=pk)
+    product = Product.objects.filter(company=default_user).filter(id=pk).first()
     context = {
         'product_parts': product_parts,
         'product': product,
