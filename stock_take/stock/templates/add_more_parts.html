@@ -3,6 +3,7 @@
 
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/link.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -15,6 +16,15 @@
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">
         </form>
     </div>
+
+    <div id="added-product">
+        <p>
+            Item: <span id="added-part">{{ added_part }}</span> added to {{ default_product }}.
+            <a class="link-to-home" href="{% url 'home' %}">Click here</a> to go home.
+        </p>
+    </div>
+    
+    <script src="{% static 'js/link.js' %}"></script>
     
 
 {% endblock %}
