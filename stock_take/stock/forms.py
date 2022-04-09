@@ -18,7 +18,9 @@ class ProductForm(forms.ModelForm):
                 attrs={
                     'placeholder': 'Product Name'
                 }
-            )
+            ),
+            'company': forms.HiddenInput()
+
         }
 
 
@@ -48,7 +50,9 @@ class StockForm(forms.ModelForm):
                 attrs={
                     'placeholder': 'Number in Stock'
                 }
-            )
+            ),
+            'company': forms.HiddenInput()
+
         }
 
 
@@ -69,5 +73,6 @@ class PartsForm(forms.ModelForm):
                 attrs={
                     'placeholder': 'Number Required'
                 }
-            )
+            ),
+            'company': forms.HiddenInput()
         }
