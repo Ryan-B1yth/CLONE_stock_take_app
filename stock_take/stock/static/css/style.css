@@ -40,6 +40,7 @@ h1, .add-new {
     height: var(--header-height);
     background: linear-gradient(var(--clr-mix-calm));
     box-shadow: var(--shadow-s);
+    position: relative;
 }
 
 .main-header h1 a {
@@ -70,4 +71,18 @@ h1, .add-new {
     --hover: .7;
     --btn-submit: hsla(145, 26%, 56%, var(--hover));
     --btn-delete: hsla(0, 58%, 86%, var(--hover));
+}
+
+.user-nav {
+    max-width: 20%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+    position: absolute;
+    right: 5%;
+}
+
+.user-nav a {
+    color: #FFFFFF;
+    text-shadow: var(--shadow-tl);
 }
