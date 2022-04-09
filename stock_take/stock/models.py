@@ -1,3 +1,6 @@
+"""
+Imports
+"""
 from django.db import models
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -14,8 +17,11 @@ class Stock(models.Model):
 
     def __str__(self):
         return f'{self.name} | {self.code} | {self.number_in_stock}'
-    
+
     def get_absolute_url(self):
+        """
+        Required url GET
+        """
         return reverse('home')
 
 
@@ -24,7 +30,6 @@ class Product(models.Model):
     Product model
     """
     name = models.CharField(max_length=100)
-    # parts = models.OneToOneField(Parts, on_delete=models.CASCADE)
     stock_parts = models.ManyToManyField(Stock)
     company = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 

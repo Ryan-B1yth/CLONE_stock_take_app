@@ -1,23 +1,20 @@
+"""
+Imports
+"""
+import math
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseRedirect
-from django.views.generic import ListView, UpdateView, DeleteView, CreateView
+from django.http import HttpResponseRedirect
+from django.views.generic import UpdateView, DeleteView
 from django.urls import reverse_lazy
 from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
-import math
 
 
 def home(request):
     """
     Home page
     """
-    products = Product.objects.all()
-    stock = Stock.objects.all()
-    context = {
-        'products': products,
-        'stock': stock,
-    }
-    return render(request, 'home.html', context)
+    return render(request, 'home.html', {})
 
 
 def product_page(request):
@@ -26,7 +23,6 @@ def product_page(request):
     """
     current_user = request.user
     products = Product.objects.filter(company=current_user.id)
-    # parts = Parts.objects.all()
     number_to_be_made = {}
 
     for product in products:
@@ -77,16 +73,6 @@ def stock_page(request):
         'stock': stock,
     }
     return render(request, 'stock.html', context)
-
-
-# class CreateNewProduct(CreateView):
-#     """
-#     Add a product
-#     """
-#     model = Product
-#     form_class = ProductForm
-#     template_name = 'add_product.html'
-#     success_url = 'link/'
 
 
 def create_new_product(request):

@@ -1,8 +1,9 @@
-from django.contrib import admin
+"""
+Imports
+"""
 from django.urls import path
 from .views import (
     create_new_product,
-    # CreateNewProduct,
     create_new_stock_part,
     add_parts_to_product,
     home,
@@ -21,9 +22,12 @@ urlpatterns = [
     path('stock/', stock_page, name='stock'),
     path('products/', product_page, name='products'),
     path('add-product/', create_new_product, name='add_new_product'),
-    # path('add-product/', CreateNewProduct.as_view(), name='add_new_product'),
     path('add-stock/', create_new_stock_part, name='add_new_stock_part'),
-    path('add-product/link/', add_parts_to_product, name='add_parts_to_product'),
+    path(
+        'add-product/link/',
+        add_parts_to_product,
+        name='add_parts_to_product'
+        ),
     path('add-product/link/<int:pk>', add_more_parts, name='add_more_parts'),
     path('product-detail/<int:pk>', product_detail, name='product-detail'),
     path('adjust-stock/<int:pk>', UpdateStock.as_view(), name='update-stock'),
