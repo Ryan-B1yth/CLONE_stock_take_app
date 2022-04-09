@@ -126,8 +126,8 @@ def add_parts_to_product(request):
     """
     Add parts to a product
     """
-    default_product = Product.objects.latest('id')
     default_user = request.user
+    default_product = Product.objects.filter(company=default_user).latest('id')
     parts_form = PartsForm(
         request.POST or None,
         initial={
@@ -148,6 +148,7 @@ def add_parts_to_product(request):
 
     context['default_product'] = default_product
     context['parts_form'] = parts_form
+    context['default_user'] = default_user
 
     return render(request, 'link_parts_to_product.html', context)
 
@@ -156,7 +157,8 @@ def add_more_parts(request, pk):
     """
     Add parts to a product
     """
-    default_product = Product.objects.filter(id=pk).latest('id')
+    default_user = request.user
+    default_product = Product.objects.filter(company=default_user).filter(id=pk).latest('id')
     parts_form = PartsForm(
         request.POST or None,
         initial={'product_part_belongs_to': default_product},
@@ -174,6 +176,7 @@ def add_more_parts(request, pk):
 
     context['default_product'] = default_product
     context['parts_form'] = parts_form
+    context['default_user'] = default_user
 
     return render(request, 'add_more_parts.html', context)
 
