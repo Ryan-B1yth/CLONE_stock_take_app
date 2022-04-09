@@ -11,7 +11,7 @@ class ProductForm(forms.ModelForm):
             Add product form meta data
         """
         model = Product
-        fields = ['name']
+        fields = ['name', 'company']
 
         widgets = {
             'name': forms.TextInput(

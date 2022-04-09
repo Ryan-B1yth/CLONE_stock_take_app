@@ -9,7 +9,7 @@
 
 {% block content %}
 
-    <h1>Products</h1>
+    <h1>Products {{ current_user.id }}</h1>
 
     <div class="add-new btn btn-submit btn-hover">
         <a href="{% url 'add_new_product' %}">Add new product</a>
@@ -22,7 +22,7 @@
                     <a href="{% url 'product-detail' product.id %}">{{ product }}</a>
                 </div>
                 <div class="orders">
-                    Coming soon
+                    Coming soon : {{ product.company.id }}
                 </div>
                 <div class="unit-number">
                     {% for key, value in number_to_be_made.items %}

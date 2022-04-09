@@ -13,9 +13,9 @@
     <div class="form-container">
         <form action="" method="POST">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ product_form }}
             
-            <input class="btn btn-submit btn-hover" type="submit" value="Submit">
+            <a href="{% url 'add_parts_to_product' %}"><input class="btn btn-submit btn-hover" type="submit" value="Submit"></a>
 
         </form>
     </div>

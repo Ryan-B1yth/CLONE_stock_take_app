@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseRedirect
 from django.views.generic import ListView, UpdateView, DeleteView, CreateView
 from django.urls import reverse_lazy
 from .models import Product, Stock, Parts
@@ -23,13 +24,16 @@ def product_page(request):
     """
     Product page
     """
+    current_user = request.user
     products = Product.objects.all()
     # parts = Parts.objects.all()
     number_to_be_made = {}
 
     for product in products:
         # Get the parts for the products
-        parts = Parts.objects.filter(product_part_belongs_to=product.id)
+        parts = Parts.objects.filter(
+            product_part_belongs_to=product.id
+            )
         units = {}
         amount = []
         total_units_to_be_made = {}
@@ -57,7 +61,8 @@ def product_page(request):
 
     context = {
         'products': products,
-        'number_to_be_made': number_to_be_made
+        'number_to_be_made': number_to_be_made,
+        'current_user': current_user
     }
     return render(request, 'products.html', context)
 
@@ -73,25 +78,56 @@ def stock_page(request):
     return render(request, 'stock.html', context)
 
 
-class CreateNewProduct(CreateView):
+# class CreateNewProduct(CreateView):
+#     """
+#     Add a product
+#     """
+#     model = Product
+#     form_class = ProductForm
+#     template_name = 'add_product.html'
+#     success_url = 'link/'
+
+
+def create_new_product(request):
     """
     Add a product
     """
-    model = Product
-    form_class = ProductForm
-    template_name = 'add_product.html'
-    success_url = 'link/'
+    default_user = request.user
+    # Create instance of Product model form
+    product_form = ProductForm(
+        request.POST or None,
+        initial={
+            'company': default_user
+            }
+        )
+    if request.method == 'POST':
+        if product_form.is_valid():
+            product_form.save()
+            return HttpResponseRedirect('link/')
+    context = {
+        'product_form': product_form,
+    }
+
+    return render(request, 'add_product.html', context)
 
 
 def create_new_stock_part(request):
     """
     Add a stock part
     """
+    default_user = request.user
     # Create instance of Stock model form
-    stock_form = StockForm(request.POST)
+    stock_form = StockForm(
+        request.POST or None,
+        initial={
+            'company': default_user
+            }
+        )
     if request.method == 'POST':
         if stock_form.is_valid():
             stock_form.save()
+            return HttpResponseRedirect('/stock/')
+
     context = {
         'stock_form': stock_form,
     }
@@ -104,9 +140,13 @@ def add_parts_to_product(request):
     Add parts to a product
     """
     default_product = Product.objects.latest('id')
+    default_user = request.user
     parts_form = PartsForm(
         request.POST or None,
-        initial={'product_part_belongs_to': default_product},
+        initial={
+            'product_part_belongs_to': default_product,
+            'company': default_user
+            },
         )
     added_part = []
     context = {}
