@@ -23,7 +23,7 @@
     font-weight: 300;
 }
 
-h1, h3, .add-new {
+h1, .center, .add-new {
     width: max-content;
     margin: 1em auto;
 }

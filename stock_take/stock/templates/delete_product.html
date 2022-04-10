@@ -10,6 +10,7 @@
 {% block content %}
 
     <h1>Delete {{ product.name }}</h1>
+    <h2 class="center">This action cannot be undone.</h2>
 
     <form action="" method="POST">
         {% csrf_token %}
