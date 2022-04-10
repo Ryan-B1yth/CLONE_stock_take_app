@@ -42,7 +42,7 @@ class SignUpForm(UserCreationForm):
             'password1',
             'password2'
             )
-        
+
         widgets = {
             'username': forms.TextInput(
                 attrs={
@@ -63,15 +63,5 @@ class SignUpForm(UserCreationForm):
                 attrs={
                     'placeholder': 'Email'
                 }
-            ),
-            # 'password1': forms.PasswordInput(
-            #     attrs={
-            #         'placeholder': 'Create a password'
-            #     }
-            # ),
-            # 'password2': forms.PasswordInput(
-            #     attrs={
-            #         'placeholder': 'Verify password'
-            #     }
-            # )
+            )
         }
