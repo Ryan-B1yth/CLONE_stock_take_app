@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/form.css' %}">
+{% endblock %}
+
 {% block content %}
 <h1>Login</h1>
 
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
-    <button>Login</button>
+    <input class="btn btn-submit btn-hover" type="submit" value="Login">
 </form>
 
 

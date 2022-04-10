@@ -10,11 +10,24 @@ class SignUpForm(UserCreationForm):
     """
     Sign up form
     """
+    username = forms.TextInput()
     email = forms.EmailField(
         widget=forms.EmailInput(attrs={'class': 'form-control'})
         )
     first_name = forms.CharField(max_length=100)
     last_name = forms.CharField(max_length=100)
+    password1 = forms.CharField(max_length=100, widget=forms.PasswordInput(
+        attrs={
+            'placeholder': 'Create a password'
+        }
+    )
+    )
+    password2 = forms.CharField(max_length=100, widget=forms.PasswordInput(
+        attrs={
+            'placeholder': 'Verify password'
+        }
+    )
+    )
 
     class Meta:
         """
@@ -29,3 +42,36 @@ class SignUpForm(UserCreationForm):
             'password1',
             'password2'
             )
+        
+        widgets = {
+            'username': forms.TextInput(
+                attrs={
+                    'placeholder': 'Username'
+                }
+            ),
+            'first_name': forms.TextInput(
+                attrs={
+                    'placeholder': 'First name'
+                }
+            ),
+            'last_name': forms.TextInput(
+                attrs={
+                    'placeholder': 'Last name'
+                }
+            ),
+            'email': forms.EmailInput(
+                attrs={
+                    'placeholder': 'Email'
+                }
+            ),
+            # 'password1': forms.PasswordInput(
+            #     attrs={
+            #         'placeholder': 'Create a password'
+            #     }
+            # ),
+            # 'password2': forms.PasswordInput(
+            #     attrs={
+            #         'placeholder': 'Verify password'
+            #     }
+            # )
+        }
