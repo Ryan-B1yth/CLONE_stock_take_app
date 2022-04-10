@@ -1,11 +1,31 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    {% if user.is_authenticated %}
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% else %}
+        <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% endif %}
+{% endblock %}
 
 {% block content %}
     <div class="container">
+        {% if user.is_authenticated %}
+            <h2><a href="{% url 'stock' %}">Stock</a></h2>
 
-        <h2><a href="{% url 'stock' %}">Stock</a></h2>
-
-        <h2><a href="{% url 'products' %}">Products</a></h2>
+            <h2><a href="{% url 'products' %}">Products</a></h2>
+        {% else %}
+            <aside class="side-info tagline">
+                <h2>Interesting tag line</h2>
+                <h3>Continued tag line</h3>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum tempora, odio similique repellat quidem, quod perspiciatis perferendis animi, eveniet delectus hic? Dolorum, mollitia repellat quasi sint eius sapiente consequuntur deserunt?</p>
+            </aside>
+            <aside class="side-info background">
+                <div class="images"></div>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum tempora, odio similique repellat quidem, quod perspiciatis perferendis animi, eveniet delectus hic? Dolorum, mollitia repellat quasi sint eius sapiente consequuntur deserunt?</p>
+            </aside>
+        {% endif %}
     
     </div>
     
