@@ -23,11 +23,10 @@
     font-weight: 300;
 }
 
-h1, .add-new {
+h1, h3, .add-new {
     width: max-content;
     margin: 1em auto;
 }
-
 .add-new {
     padding: .5em;
     border-radius: 5px;
