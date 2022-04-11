@@ -8,15 +8,17 @@ from django.contrib.auth.forms import (
     UserChangeForm,
 )
 from django.urls import reverse_lazy
-from .forms import SignUpForm, EditProfileForm, ChangePasswordForm
-from django.contrib.auth.views import PasswordChangeView
+from .forms import LoginForm, SignUpForm, EditProfileForm, ChangePasswordForm
+from django.contrib.auth.views import PasswordChangeView, LoginView
 
 
-def login(request):
+class Login(LoginView):
     """
     Login page
     """
-    return render(request, 'login.html', {})
+    form_class = LoginForm
+    template_name = 'registration/login.html'
+    success_url = reverse_lazy('home')
 
 
 class UserRegisterView(generic.CreateView):
