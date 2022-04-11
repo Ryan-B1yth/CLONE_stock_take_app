@@ -52,4 +52,3 @@ def password_reset_success(request):
     Password reset
     """
     return render(request, 'registration/password_reset_success.html', {})
-    

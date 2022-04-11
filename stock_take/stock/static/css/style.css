@@ -23,6 +23,10 @@
     font-weight: 300;
 }
 
+body {
+    overflow-x: hidden;
+}
+
 h1, .center, .add-new {
     width: max-content;
     margin: 1em auto;
@@ -81,7 +85,7 @@ h1, .center, .add-new {
     right: 5%;
 }
 
-.user-nav a {
+.user-nav div, .user-nav a {
     color: #FFFFFF;
     text-shadow: var(--shadow-tl);
 }
@@ -91,4 +95,20 @@ h1, .center, .add-new {
     padding: 10px;
     background-color: hsla(0, 58%, 86%, var(--hover));
     border-radius: 5px;
+}
+
+#dropdown {
+    position: relative;
+    cursor: pointer;
+}
+
+#edit-profile {
+    display: none;
+    background-color: #aacec9;
+    min-width: max-content;
+    padding: 1em 10em 1em 1em;
+    box-shadow: var(--shadow-s);
+    position: absolute;
+    top: 2em;
+    left: -1em;
 }
