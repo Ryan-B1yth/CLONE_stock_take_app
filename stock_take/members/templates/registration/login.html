@@ -12,6 +12,9 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    {% if form.errors %}
+        <p class="errors">Username or password incorrect. Please try again. (Note that all fields are case sensitive).</p>
+    {% endif %}
     <input class="btn btn-submit btn-hover" type="submit" value="Login">
 </form>
 

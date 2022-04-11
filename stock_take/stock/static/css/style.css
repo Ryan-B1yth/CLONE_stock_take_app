@@ -85,3 +85,10 @@ h1, .center, .add-new {
     color: #FFFFFF;
     text-shadow: var(--shadow-tl);
 }
+
+.errors {
+    text-align: center;
+    padding: 10px;
+    background-color: hsla(0, 58%, 86%, var(--hover));
+    border-radius: 5px;
+}

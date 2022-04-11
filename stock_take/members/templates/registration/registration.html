@@ -13,6 +13,9 @@
 <form action="" method="POST">
     {% csrf_token %}
     {{ form.as_p }}
+    {% if form.errors %}
+        {{ form.errors }}
+    {% endif %}
     <input class="btn btn-submit btn-hover" type="submit" value="Register">
 
 </form>
