@@ -3,13 +3,9 @@ Imports
 """
 from django.shortcuts import render
 from django.views import generic
-from django.contrib.auth.forms import (
-    UserCreationForm,
-    UserChangeForm,
-)
 from django.urls import reverse_lazy
-from .forms import LoginForm, SignUpForm, EditProfileForm, ChangePasswordForm
 from django.contrib.auth.views import PasswordChangeView, LoginView
+from .forms import LoginForm, SignUpForm, EditProfileForm, ChangePasswordForm
 
 
 class Login(LoginView):
@@ -52,5 +48,8 @@ class ChangePasswordView(PasswordChangeView):
 
 
 def password_reset_success(request):
+    """
+    Password reset
+    """
     return render(request, 'registration/password_reset_success.html', {})
     

@@ -2,10 +2,13 @@
 Imports
 """
 from django.urls import path
-# from django.contrib.auth.views import LoginView
-from .views import password_reset_success
-from .views import Login, UserRegisterView, UserEditView, ChangePasswordView
-from .forms import LoginForm
+from .views import (
+    Login,
+    UserRegisterView,
+    UserEditView,
+    ChangePasswordView,
+    password_reset_success
+)
 
 urlpatterns = [
     path('login/', Login.as_view(), name='login'),
