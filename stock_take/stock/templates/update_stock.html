@@ -10,6 +10,12 @@
 
     <h1>Stock Adjust</h1>
 
+    {% for field in form %}
+        {% if field.errors %}
+            <p>{{ field.errors }}</p>
+        {% endif %}
+    {% endfor %}
+
     <div class="form-container">
         <form action="" method="POST">
             {% csrf_token %}
@@ -18,5 +24,7 @@
         </form>
         <button class="btn btn-delete btn-hover"><a href="{% url 'delete-stock' stock.id %}">Delete</a></button>
     </div>
+
+    <script src="{% static 'js/errors.js' %}"></script>
 
 {% endblock %}

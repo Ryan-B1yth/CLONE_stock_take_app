@@ -10,6 +10,13 @@
 
 
     <h1>Add parts to {{ default_product }}</h1>
+
+    {% for field in parts_form %}
+        {% if field.errors %}
+            <p>{{ field.errors }}</p>
+        {% endif %}
+    {% endfor %}
+
     <div class="form-container">
         <form action="" method="POST">
             {% csrf_token %}
@@ -18,15 +25,18 @@
         </form>
     </div>
 
+    {% if not parts_form.errors %}
     <div id="added-product">
         <p>
             Item: <span id="added-part">{{ added_part }}</span> added to {{ default_product }}.
             <a class="link-to-home" href="{% url 'home' %}">Click here</a> to go home.
         </p>
     </div>
+    {% endif %}
     
 
     <script src="{% static 'js/link.js' %}"></script>
+    <script src="{% static 'js/errors.js' %}"></script>
     
 
 {% endblock %}

@@ -11,6 +11,12 @@
 
     <h1>Add parts to {{ default_product }}</h1>
     
+    {% for field in stock_form %}
+        {% if field.errors %}
+            <p>{{ field.errors }}</p>
+        {% endif %}
+    {% endfor %}
+
     <div class="form-container">
         <form action="" method="POST">
             {% csrf_token %}
@@ -28,5 +34,6 @@
     </div>
     
     <script src="{% static 'js/link.js' %}"></script>
+    <script src="{% static 'js/errors.js' %}"></script>
     
 {% endblock %}

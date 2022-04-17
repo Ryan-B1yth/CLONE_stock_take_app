@@ -9,6 +9,13 @@
 {% block content %}
 
     <h1>Add a stock part</h1>
+
+    {% for field in stock_form %}
+        {% if field.errors %}
+            <p>{{ field.errors }}</p>
+        {% endif %}
+    {% endfor %}
+
     <div class="form-container">
         <form action="" method="POST">
             {% csrf_token %}
@@ -18,5 +25,6 @@
         </form>
     </div>
     
+    <script src="{% static 'js/errors.js' %}"></script>
 
 {% endblock %}

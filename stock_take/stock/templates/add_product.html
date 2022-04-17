@@ -10,6 +10,12 @@
 
     <h1>Add a product</h1>
    
+    {% for field in product_form %}
+        {% if field.errors %}
+            <p>{{ field.errors }}</p>
+        {% endif %}
+    {% endfor %}
+
     <div class="form-container">
         <form action="" method="POST">
             {% csrf_token %}
@@ -20,5 +26,6 @@
         </form>
     </div>
     
+    <script src="{% static 'js/errors.js' %}"></script>
 
 {% endblock %}
