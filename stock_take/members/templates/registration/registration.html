@@ -8,16 +8,21 @@
 
 {% block content %}
 
-<h1>Register</h1>
+    <h1>Register</h1>
 
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
-    {% if form.errors %}
-        {{ form.errors }}
-    {% endif %}
-    <input class="btn btn-submit btn-hover" type="submit" value="Register">
+    {% for field in form %}
+        {% if field.errors %}
+            <p>{{ field.errors }}</p>
+        {% endif %}
+    {% endfor %}
 
-</form>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input class="btn btn-submit btn-hover" type="submit" value="Register">
+
+    </form>
+
+    <script src="{% static 'js/errors.js' %}"></script>
 
 {% endblock %}
