@@ -8,16 +8,22 @@
 
 ### User Stories           
 - First time visitor goals:
-  - 
+  - Have the first visit easily explain the site, how it works, what it can do, etc.
+  - Have the app be easy to navigate and intuitive to user.
 
 - Returning visitor goals:
-  - 
+  - Be able to login and see data stored from previous visits.
+  - Be able to easily login and view my data.
 
 - Frequent user goals:
-  - 
+  - Be able to quickly see what I have in stock and how many products I can make.
+  - Be able to add new products and/or stock quickly and easily and see that
+    immediately reflected in the interface.
 
 - Site owner goals: 
-  - 
+  - Have the interface be easy to navigate and reflect recent actions to the user. 
+  - Show the user exactly how many of each product they can make.
+
 ### Design
 - Color Scheme
   - 
