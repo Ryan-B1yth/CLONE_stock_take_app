@@ -44,7 +44,10 @@ class Parts(models.Model):
     product_part_belongs_to = models.ForeignKey(
         Product, on_delete=models.CASCADE
         )
-    item = models.ForeignKey(Stock, on_delete=models.CASCADE)
+    item = models.ForeignKey(
+        Stock,
+        on_delete=models.CASCADE
+        )
     number_required = models.IntegerField()
     company = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 

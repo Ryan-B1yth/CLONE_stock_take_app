@@ -135,6 +135,7 @@ def add_parts_to_product(request):
             'company': default_user
             },
         )
+    parts_form.fields["item"].queryset = Stock.objects.filter(company=default_user)
     added_part = []
     context = {}
     if request.method == 'POST':
@@ -161,8 +162,12 @@ def add_more_parts(request, pk):
     default_product = Product.objects.filter(company=default_user).filter(id=pk).latest('id')
     parts_form = PartsForm(
         request.POST or None,
-        initial={'product_part_belongs_to': default_product},
+        initial={
+            'product_part_belongs_to': default_product,
+            'company': default_user,
+            },
         )
+    parts_form.fields["item"].queryset = Stock.objects.filter(company=default_user)
     added_part = []
     context = {}
     if request.method == 'POST':
