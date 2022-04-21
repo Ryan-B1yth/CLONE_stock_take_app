@@ -39,6 +39,15 @@
     padding: 3em 0;
 }
 
+.grid-buttons a {
+    width: 20%;
+}
+
+.grid-buttons a input {
+    width: 100%;
+    cursor: pointer;
+}
+
 .grid-btn {
     width: 20%;
     height: 3em;

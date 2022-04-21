@@ -2,6 +2,8 @@
     min-width: 80%;
     max-width: 90%;
     margin: 2em auto;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .product-row {

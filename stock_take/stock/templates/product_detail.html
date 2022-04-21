@@ -39,8 +39,8 @@
         </div>
         {% endfor %}
         <div class="grid-buttons">
-            <button class="btn grid-btn btn-submit btn-hover"><a href="{% url 'add_more_parts' product.pk %}">Add a part</a></button>
-            <button class="btn grid-btn btn-delete btn-hover"><a href="{% url 'delete-product' product.id %}">Delete</a></button>
+            <a href="{% url 'add_more_parts' product.pk %}"><input class="btn grid-btn btn-submit btn-hover" type="button" value="Add a part"></input></a>
+            <a href="{% url 'delete-product' product.id %}"><input class="btn grid-btn btn-delete btn-hover" type="button" value="Delete"></input></a>
         </div>
         
     </div>
