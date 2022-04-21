@@ -2,7 +2,9 @@
 
 :root {
     --clr-mix-calm: 120deg, #f1e9dc 2%, #aacec9, #73ad8b 90%;
+    --shadow: 0 10px 20px 0 rgba(0, 0, 0, .2), 0 10px 20px 0 rgba(0, 0, 0, .2);
     --shadow-s: 0 5px 7px 0 rgba(0, 0, 0, .2), 0 5px 7px 0 rgba(0, 0, 0, .2);
+    --shadow-l: 0 20px 30px 0 rgba(0, 0, 0, .2), 0 20px 30px 0 rgba(0, 0, 0, .2);
     --shadow-tl: 5px 5px 5px rgba(0, 0, 0, .2), -5px 5px 5px rgba(0, 0, 0, .2);
     --header-height: 5em;
     --hover: .522;
@@ -91,6 +93,18 @@ h1, .center, .add-new {
     text-shadow: var(--shadow-tl);
 }
 
+.nav-tab-link {
+    padding: 2em 4em;
+    border-radius: 5px;
+    box-shadow: var(--shadow-s);
+    transition: all 200ms ease-in-out;
+}
+
+.nav-tab-link:hover {
+    box-shadow: var(--shadow);
+    transition: all 200ms ease-in-out;
+}
+
 .errors {
     text-align: center;
     padding: 10px;
@@ -112,4 +126,27 @@ h1, .center, .add-new {
     position: absolute;
     top: 2em;
     left: -1em;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFFFFF;
+    border-radius: 50px;
+    margin-block: calc(.5em * (-1));
+    box-shadow: inset var(--shadow-s);
+}
+
+
+::-webkit-scrollbar-thumb {
+    background: #aacec9;
+    border-radius: 50px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

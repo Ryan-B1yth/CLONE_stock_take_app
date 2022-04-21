@@ -12,9 +12,9 @@
 {% block content %}
     <div class="container">
         {% if user.is_authenticated %}
-            <h2><a href="{% url 'stock' %}">Stock</a></h2>
+            <h2 class="nav-tab"><a class="nav-tab-link" href="{% url 'stock' %}">Stock</a></h2>
 
-            <h2><a href="{% url 'products' %}">Products</a></h2>
+            <h2 class="nav-tab"><a class="nav-tab-link" href="{% url 'products' %}">Products</a></h2>
         {% else %}
             <aside class="side-info tagline">
                 <h2>Interesting tag line</h2>
