@@ -19,10 +19,10 @@
         {% for product in products %}
             <div class="product-row">
                 <div class="product">
-                    <a href="{% url 'product-detail' product.id %}">{{ product }}</a>
+                    <a href="{% url 'product-detail' product.id %}">❯ {{ product }}</a>
                 </div>
                 <div class="orders">
-                    Coming soon
+                    <!-- Coming soon -->
                 </div>
                 <div class="unit-number">
                     {% for key, value in number_to_be_made.items %}

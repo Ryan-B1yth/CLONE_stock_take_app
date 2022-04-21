@@ -28,3 +28,14 @@
     justify-content: center;
     align-items: center;
 }
+
+.product a {
+    padding: 3em;
+    line-height: 2em;
+    letter-spacing: 1px;
+    text-underline-offset: .2em;
+}
+
+.product a:hover {
+    text-decoration: underline;
+}
