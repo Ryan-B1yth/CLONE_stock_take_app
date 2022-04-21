@@ -21,7 +21,10 @@
         <form action="" method="POST">
             {% csrf_token %}
             {{ parts_form }}
+            
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">
+            <a href="{% url 'home' %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
+
         </form>
     </div>
 

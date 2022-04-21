@@ -207,6 +207,7 @@ class UpdateStock(UpdateView):
     model = Stock
     template_name = 'update_stock.html'
     form_class = StockForm
+    success_url = reverse_lazy('stock')
 
 
 class DeleteStockView(DeleteView):
@@ -215,7 +216,7 @@ class DeleteStockView(DeleteView):
     """
     model = Stock
     template_name = 'delete_stock.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('stock')
 
 
 class DeletePartView(DeleteView):
@@ -224,7 +225,7 @@ class DeletePartView(DeleteView):
     """
     model = Parts
     template_name = 'delete_part.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('products')
 
 
 class DeleteProductView(DeleteView):

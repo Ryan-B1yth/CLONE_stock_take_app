@@ -73,6 +73,10 @@ h1, .center, .add-new {
     background-color: var(--btn-submit);
 }
 
+.btn-cancel {
+    background-color: #FFFFFF;
+}
+
 .btn:hover {
     --hover: .7;
     --btn-submit: hsla(145, 26%, 56%, var(--hover));
@@ -128,7 +132,6 @@ h1, .center, .add-new {
     left: -1em;
 }
 
-
 ::-webkit-scrollbar {
     width: 10px;
 }
@@ -140,12 +143,10 @@ h1, .center, .add-new {
     box-shadow: inset var(--shadow-s);
 }
 
-
 ::-webkit-scrollbar-thumb {
     background: #aacec9;
     border-radius: 50px;
 }
-
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;

@@ -16,9 +16,9 @@
         {% csrf_token %}
         {{ form.as_p }}
 
-        <div class="delete-button">
-            <input class="btn btn-delete btn-hover" type="submit" value="Delete">
-        </div>
+        <input class="btn btn-delete btn-hover" type="submit" value="Delete">
+        <a href="{% url 'home' %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
+
     </form>
 
 {% endblock %}
