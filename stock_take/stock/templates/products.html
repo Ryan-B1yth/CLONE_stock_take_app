@@ -15,26 +15,30 @@
         <a href="{% url 'add_new_product' %}">Add new product</a>
     </div>
 
-    <div class="product-container">
-        {% for product in products %}
-            <div class="product-row">
-                <div class="product">
-                    <a href="{% url 'product-detail' product.id %}">❯ {{ product }}</a>
-                </div>
-                <div class="orders">
-                    <!-- Coming soon -->
-                </div>
-                <div class="unit-number">
-                    {% for key, value in number_to_be_made.items %}
-                        {% if product.id == key %}
-                            Units can be made: {{ value }}
-                        {% endif %}
-                    {% endfor %}
+    {% if not products %}
+        <h2 class="center">You don't have any products yet!</h2>
+    {% else %}
+        <div class="product-container">
+            {% for product in products %}
+                <div class="product-row">
+                    <div class="product">
+                        <a href="{% url 'product-detail' product.id %}">❯ {{ product }}</a>
+                    </div>
+                    <div class="orders">
+                        <!-- Coming soon -->
+                    </div>
+                    <div class="unit-number">
+                        {% for key, value in number_to_be_made.items %}
+                            {% if product.id == key %}
+                                Units can be made: {{ value }}
+                            {% endif %}
+                        {% endfor %}
 
+                    </div>
                 </div>
-            </div>
-        {% endfor %}
-    </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 
 
 {% endblock %}
