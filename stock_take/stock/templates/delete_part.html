@@ -17,7 +17,7 @@
         {{ form.as_p }}
 
         <input class="btn btn-delete btn-hover" type="submit" value="Remove">
-        <a href="{% url 'home' %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
+        <a href="{% url 'product-detail' parts.product_part_belongs_to.id %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
 
     </form>
 
