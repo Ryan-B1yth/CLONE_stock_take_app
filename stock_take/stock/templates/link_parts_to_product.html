@@ -29,7 +29,7 @@
     <div id="added-product">
         <p>
             Item: <span id="added-part">{{ added_part }}</span> added to {{ default_product }}.
-            <a class="link-to-home" href="{% url 'products' %}">Click here</a> to go to product page.
+            <a class="link-to-home" href="{% url 'product-detail' default_product.id %}">Click here</a> to go to product page.
         </p>
     </div>
     
