@@ -14,29 +14,33 @@
         <a href="{% url 'add_new_stock_part' %}">Add new stock item</a>
     </div>
 
-    <div class="grid">
-        <div class="grid-headings grid-4">
-            <h3>Part name</h3>
-            <h3>Part code</h3>
-            <h3>Number in stock</h3>
+    {% if not stock %}
+        <h2 class="center">You haven't added any stock yet!</h2>
+    {% else %}
+        <div class="grid">
+            <div class="grid-headings grid-4">
+                <h3>Part name</h3>
+                <h3>Part code</h3>
+                <h3>Number in stock</h3>
+            </div>
+            
+            {% for item in stock %}
+            <div class="grid-row grid-4">
+                <div class="item-name-content">
+                    <h3>{{ item.name }}</h3>
+                </div>
+                <div class="item-code-content">
+                    <h3>{{ item.code }}</h3>
+                </div>
+                <div class="item-number-content">
+                    <h3>{{ item.number_in_stock }}</h3>
+                </div>
+                <div class="update">
+                    <h3><a href="{% url 'update-stock' item.pk %}">Update</a></h3>
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        
-        {% for item in stock %}
-        <div class="grid-row grid-4">
-            <div class="item-name-content">
-                <h3>{{ item.name }}</h3>
-            </div>
-            <div class="item-code-content">
-                <h3>{{ item.code }}</h3>
-            </div>
-            <div class="item-number-content">
-                <h3>{{ item.number_in_stock }}</h3>
-            </div>
-            <div class="update">
-                <h3><a href="{% url 'update-stock' item.pk %}">Update</a></h3>
-            </div>
-        </div>
-        {% endfor %}
-    </div>
+    {% endif %}
 
 {% endblock %}

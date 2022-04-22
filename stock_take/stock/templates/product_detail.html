@@ -11,40 +11,42 @@
 
     <h1>{{ product }} parts</h1>
 
-    <div class="grid">
-        <div class="grid-headings grid-5">
-            <h3>Part name</h3>
-            <h3>Part code</h3>
-            <h3>Number required</h3>
-            <h3>Number in stock</h3>
-        </div>
+    {% if not product_parts %}
+        <h2 class="center">This product has no parts!</h3>
+    {% else %}
+        <div class="grid">
+            <div class="grid-headings grid-5">
+                <h3>Part name</h3>
+                <h3>Part code</h3>
+                <h3>Number required</h3>
+                <h3>Number in stock</h3>
+            </div>
 
-        {% for part in product_parts %}
-        <div class="grid-row grid-5">
-            <div class="item-name-content">
-                <h3>{{ part.item.name }}</h3>
-            </div>
-            <div class="item-code-content">
-                <h3>{{ part.item.code }}</h3>
-            </div>
-            <div class="item-required-content">
-                <h3>{{ part.number_required }}</h3>
-            </div>
-            <div class="item-number-content">
-                <h3>{{ part.item.number_in_stock }}</h3>
-            </div>
-            <div class="update">
-                <h3><a href="{% url 'delete-part' part.id %}">Remove</a></h3>
-            </div>
-        </div>
-        {% endfor %}
-        <div class="grid-buttons">
-            <a href="{% url 'add_more_parts' product.pk %}"><input class="btn grid-btn btn-submit btn-hover" type="button" value="Add a part"></input></a>
-            <a href="{% url 'delete-product' product.id %}"><input class="btn grid-btn btn-delete btn-hover" type="button" value="Delete"></input></a>
-        </div>
-        
-    </div>
+            {% for part in product_parts %}
+                <div class="grid-row grid-5">
+                    <div class="item-name-content">
+                        <h3>{{ part.item.name }}</h3>
+                    </div>
+                    <div class="item-code-content">
+                        <h3>{{ part.item.code }}</h3>
+                    </div>
+                    <div class="item-required-content">
+                        <h3>{{ part.number_required }}</h3>
+                    </div>
+                    <div class="item-number-content">
+                        <h3>{{ part.item.number_in_stock }}</h3>
+                    </div>
+                    <div class="update">
+                        <h3><a href="{% url 'delete-part' part.id %}">Remove</a></h3>
+                    </div>
+                </div>
+            {% endfor %}
 
-    
+    {% endif %}
+            <div class="grid-buttons">
+                <a href="{% url 'add_more_parts' product.pk %}"><input class="btn grid-btn btn-submit btn-hover" type="button" value="Add a part"></input></a>
+                <a href="{% url 'delete-product' product.id %}"><input class="btn grid-btn btn-delete btn-hover" type="button" value="Delete"></input></a>
+            </div>
+        </div>
 
 {% endblock %}

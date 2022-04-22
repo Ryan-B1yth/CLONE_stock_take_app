@@ -16,17 +16,27 @@
     display: grid;
     align-items: center;
     grid-auto-flow: column;
-    height: 3em;
+    padding: .5em 0;
     border-top: 1px solid #000000;
 }
 
 .grid-4 {
     grid-template-columns: repeat(4, 1fr);
+    gap: .5em;
 }
 
 .grid-5 {
     grid-template-columns: repeat(5, 1fr);
+    gap: .5em;
+}
 
+.grid-4 > *, .grid-5 > * {
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+.grid-4 ::-webkit-scrollbar, .grid-5 ::-webkit-scrollbar {
+    display: none;
 }
 
 .update {

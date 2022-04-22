@@ -234,4 +234,4 @@ class DeleteProductView(DeleteView):
     """
     model = Product
     template_name = 'delete_product.html'
-    success_url = reverse_lazy('home')
+    success_url = reverse_lazy('products')
