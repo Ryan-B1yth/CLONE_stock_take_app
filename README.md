@@ -1,8 +1,9 @@
-# Game Of Thrones Interactive Map Game
+# Take Stock
 
 ![4 size view of the website's home page]()
 
 <!-- Description -->
+Take Stock is a data handling app for small buisnesses to take care of their stock and product information. A company can create a profile, add stock items, add products, and then link stock items to each product. The app will then tell the user exactly how many of each product they can make based on what they have in stock. 
 
 ## User Experience (UX)
 
@@ -26,13 +27,13 @@
 
 ### Design
 - Color Scheme
-  - 
+  - Sleek, black on white with sophisticated color scheme accents to portray professionalism.
 
 - Typography
-  - 
+  - Nanum Gothic is and easy to read, block-like typeface. The motif of the app is professional which the font follows.
 
 - Imagery
-  - 
+  - No imagery as the app is informational based. Screenshots on the home page and the "how-to-use" page to show functionality and use.
 
 - Wireframes 
   - 
@@ -43,17 +44,20 @@
 ## Features
 
 ### Existing features
-- 
-- 
-- 
+- Users can add stock and products, as well as link stock items to products.
+- The app will show users exactly how many of each product the user can make given the amount of stock they have.
+- The app has all features of CRUD functionality.
 
 ### Landing page
 
 ## Future updates
 
-- 
-- 
-- 
+- An orders page where users can specify how many of each product they need to make, and the app with tell them how many they can make, and how much stock they would need to aquire to complete each order.
+- Roles relevant to different departments. For example:
+  - Managers: Full access to all features
+  - Sales: Able to add, update, and change orders
+  - Storage: Able to change stock numbers and items
+  - Production Hands: Able to read data but not able to change or update data.
 
 ## Languages Used
 
