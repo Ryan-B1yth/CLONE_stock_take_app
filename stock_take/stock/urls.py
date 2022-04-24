@@ -3,6 +3,7 @@ Imports
 """
 from django.urls import path
 from .views import (
+    admin_view,
     create_new_product,
     create_new_stock_part,
     add_parts_to_product,
@@ -19,6 +20,7 @@ from .views import (
 
 urlpatterns = [
     path('', home, name='home'),
+    path('admin-view', admin_view, name='admin_view'),
     path('stock/', stock_page, name='stock'),
     path('products/', product_page, name='products'),
     path('add-product/', create_new_product, name='add_new_product'),

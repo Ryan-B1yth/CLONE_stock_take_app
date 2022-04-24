@@ -6,6 +6,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.auth.models import User
 from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
 
@@ -15,6 +16,24 @@ def home(request):
     Home page
     """
     return render(request, 'home.html', {})
+
+
+def admin_view(request):
+    """
+    Admin view
+    """
+    users = User.objects.all()
+    products = Product.objects.all()
+    parts = Parts.objects.all()
+    stock = Stock.objects.all()
+    context = {
+        'users': users,
+        'products': products,
+        'parts': parts,
+        'stock': stock
+    }
+
+    return render(request, 'admin_view.html', context)
 
 
 def product_page(request):

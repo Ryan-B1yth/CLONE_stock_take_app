@@ -1,0 +1,11 @@
+.user-row {
+    cursor: pointer;
+}
+
+.parts-dropdown {
+    display: none;
+}
+
+.products-dropdown {
+    display: none;
+}

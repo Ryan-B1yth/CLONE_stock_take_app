@@ -1,4 +1,4 @@
 
 $('#dropdown').click( () => 
-    $('#edit-profile').slideToggle()
+    $('#links').slideToggle()
 )

@@ -19,7 +19,18 @@
         <div class="user-nav">
             {% if user.is_authenticated %}
                 <div id="dropdown">{{ default_user }}
-                    <a id="edit-profile" href="{% url 'edit_profile' %}">Edit profile</a>
+                    <div id="links">
+                        <ul>
+                            <li>
+                                <a id="edit-profile" href="{% url 'edit_profile' %}">Edit profile</a>
+                            </li>
+                            {% if user.is_staff %}
+                                <li>
+                                    <a id="admin-view" href="{% url 'admin_view' %}">Admin Section</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
                 <a href="{% url 'logout' %}">Logout</a>
             {% else %}

@@ -11,6 +11,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 - First time visitor goals:
   - Have the first visit easily explain the site, how it works, what it can do, etc.
   - Have the app be easy to navigate and intuitive to user.
+  - Be able to sign up for an account as easily as possible.
 
 - Returning visitor goals:
   - Be able to login and see data stored from previous visits.
@@ -24,6 +25,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 - Site owner goals: 
   - Have the interface be easy to navigate and reflect recent actions to the user. 
   - Show the user exactly how many of each product they can make.
+  - Have user data be only accessable to that specific user.
 
 ### Design
 - Color Scheme

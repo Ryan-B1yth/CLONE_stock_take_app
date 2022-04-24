@@ -121,15 +121,18 @@ h1, .center, .add-new {
     cursor: pointer;
 }
 
-#edit-profile {
+#links {
     display: none;
     background-color: #aacec9;
     min-width: max-content;
-    padding: 1em 3.5em 1em 1em;
     box-shadow: var(--shadow-s);
     position: absolute;
     top: 2em;
     left: -1em;
+}
+
+#links ul li {
+    padding: 1em;
 }
 
 ::-webkit-scrollbar {
