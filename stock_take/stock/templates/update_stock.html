@@ -8,7 +8,7 @@
 
 {% block content %}
 
-{% if stock.company.id == user.id %}
+{% if stock.company.id == user.id or user.is_staff %}
     <h1>Stock Adjust</h1>
 
     {% for field in form %}

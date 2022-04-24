@@ -46,7 +46,7 @@
                     <h2>Stock list</h2>
                     {% for item in stock %}
                         {% if item.company.id == user.id %}
-                            <h3><span>Name : {{ item.name }}</span><span>Code : {{ item.code }}</span><span>Number in stock : {{ item.number_in_stock }}</span></h3>
+                            <h3><span>Name : {{ item.name }}</span><span>Code : {{ item.code }}</span><span>Number in stock : {{ item.number_in_stock }}</span> <a href="{% url 'update-stock' item.id %}"><input class="btn btn-submit" type="button" value="Update"></a></h3>
                         {% endif %}
                     {% endfor %}
                 </div>
