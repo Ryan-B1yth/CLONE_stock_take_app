@@ -8,6 +8,7 @@
 
 {% block content %}
 
+{% if stock.company.id == user.id %}
     <h1>Stock Adjust</h1>
 
     {% for field in form %}
@@ -26,6 +27,12 @@
         </form>
     </div>
 
+{% else %}
+
+    <h1>You are not authorised to enter this page!</h1>
+    <h2 class="center"><a href="{% url 'home' %}">Click here </a>to go home.</h2>
+
+{% endif %}
     <script src="{% static 'js/errors.js' %}"></script>
 
 {% endblock %}

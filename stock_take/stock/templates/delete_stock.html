@@ -8,6 +8,8 @@
 
 {% block content %}
 
+{% if stock.company.id == user.id %}
+
     <h1>Delete {{ stock.name }} | {{ stock.code }}?</h1>
     <h2 class="center">This action cannot be undone.</h2>
 
@@ -19,5 +21,12 @@
         <a href="{% url 'stock' %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
 
     </form>
+
+{% else %}
+
+    <h1>You are not authorised to enter this page!</h1>
+    <h2 class="center"><a href="{% url 'home' %}">Click here </a>to go home.</h2>
+
+{% endif %}
 
 {% endblock %}

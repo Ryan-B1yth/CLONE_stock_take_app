@@ -9,6 +9,8 @@
 
 {% block content %}
 
+{% if parts.company.id == user.id %}
+
     <h1>Remove {{ parts.item }} from {{ parts.product_part_belongs_to }}</h1>
     <h2 class="center">This action cannot be undone.</h2>
 
@@ -21,4 +23,10 @@
 
     </form>
 
+{% else %}
+
+    <h1>You are not authorised to enter this page!</h1>
+    <h2 class="center"><a href="{% url 'home' %}">Click here </a>to go home.</h2>
+    
+{% endif %}
 {% endblock %}

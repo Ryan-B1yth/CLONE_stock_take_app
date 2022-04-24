@@ -8,51 +8,55 @@
 
 {% block content %}
 
-<h1 class="center">Users</h1>
-<div class="admin-panel">
-    {% for user in users %}
-        <div class="user-row">
-            <h2>{{ user }}</h2>
-            <input class="first btn btn-submit" value="Products" type="button">
-            <div class="products-dropdown">
-                <ul>
-                    {% for product in products %}
-                        {% if product.company.id == user.id %}
-                            <li><h3>{{ product }}</h3>
-                                <input class="second btn btn-submit" value="Parts" type="button">
-                                <a href="{% url 'delete-product' product.id %}">
-                                    <input type="button" class="btn btn-delete" value="Delete">
-                                </a>
-                                <div class="parts-dropdown">
-                                    <ul>
-                                        <h2>Part list</h2>
-                                        {% for part in parts %}
-                                            {% if part.product_part_belongs_to.id == product.id %}
-                                                {% if part.company.id == user.id %}
-                                                        <li>Part : {{ part.item.name }} | Number required : {{ part.number_required }}</li>
+{% if user.is_staff %}
+    <h1 class="center">Users</h1>
+    <div class="admin-panel">
+        {% for user in users %}
+            <div class="user-row">
+                <h2>{{ user }}</h2>
+                <input class="first btn btn-submit" value="Products" type="button">
+                <div class="products-dropdown">
+                    <ul>
+                        {% for product in products %}
+                            {% if product.company.id == user.id %}
+                                <li><h3>{{ product }}</h3>
+                                    <input class="second btn btn-submit" value="Parts" type="button">
+                                    <a href="{% url 'delete-product' product.id %}">
+                                        <input type="button" class="btn btn-delete" value="Delete">
+                                    </a>
+                                    <div class="parts-dropdown">
+                                        <ul>
+                                            <h2>Part list</h2>
+                                            {% for part in parts %}
+                                                {% if part.product_part_belongs_to.id == product.id %}
+                                                    {% if part.company.id == user.id %}
+                                                            <li>Part : {{ part.item.name }} | Number required : {{ part.number_required }}</li>
+                                                    {% endif %}
                                                 {% endif %}
-                                            {% endif %}
-                                        {% endfor %}
-                                    </ul>
-                                </div>
-                            </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </div>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+                    </ul>
+                </div>
+                <input type="button" class=" third btn btn-submit" value="Stock">
+                <div class="stock-list">
+                    <h2>Stock list</h2>
+                    {% for item in stock %}
+                        {% if item.company.id == user.id %}
+                            <h3><span>Name : {{ item.name }}</span><span>Code : {{ item.code }}</span><span>Number in stock : {{ item.number_in_stock }}</span></h3>
                         {% endif %}
                     {% endfor %}
-                </ul>
+                </div>
             </div>
-            <input type="button" class=" third btn btn-submit" value="Stock">
-            <div class="stock-list">
-                <h2>Stock list</h2>
-                {% for item in stock %}
-                    {% if item.company.id == user.id %}
-                        <h3><span>Name : {{ item.name }}</span><span>Code : {{ item.code }}</span><span>Number in stock : {{ item.number_in_stock }}</span></h3>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-    {% endfor %} 
-</div>
-
+        {% endfor %} 
+    </div>
+{% else %}
+    <h1>You are not authorised to enter this page!</h1>
+    <h2 class="center"><a href="{% url 'home' %}">Click here </a>to go home.</h2>
+{% endif %}
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{% static 'js/admin.js' %}"></script>
