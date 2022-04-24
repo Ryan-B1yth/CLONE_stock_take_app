@@ -7,7 +7,17 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ## User Experience (UX)
 
-### User Stories           
+### User Stories / Epics 
+
+- Epic
+  - As a user/company, I'd like to have an app where I can store information about my products; including it's:
+    - Name
+    - List of parts (Bill of Materials (BOM))
+    - How many of each item I have in stock
+    - How many of each product I can make
+  - I would like to be able to update the products BOM at any time, as well as the stock list.
+  - Login/logout should be quick and easy.
+         
 - First time visitor goals:
   - Have the first visit easily explain the site, how it works, what it can do, etc.
   - Have the app be easy to navigate and intuitive to user.
@@ -22,10 +32,25 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
   - Be able to add new products and/or stock quickly and easily and see that
     immediately reflected in the interface.
 
+- Admin user goals:
+  - Have access to other user data to be able to check for and remove objectionable inputs.
+
 - Site owner goals: 
   - Have the interface be easy to navigate and reflect recent actions to the user. 
   - Show the user exactly how many of each product they can make.
   - Have user data be only accessable to that specific user.
+
+- User acceptance: 
+  - Stock list and product list implemented.
+  - Register/login feature to separate user data.
+  - User data cannot be accessed or change by the wrong user.
+
+- Tasks:
+  - Implement login/logout features.
+  - Create models to house stock and product data.
+  - Create logic to link stock items to products.
+  - Allow users to update and delete their data as they choose to.
+  - Allow the admin access to all user data.
 
 ### Design
 - Color Scheme
@@ -52,6 +77,8 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ### Landing page
 
+- The landing page has two versions of itself: a logged in and a logged out version. The logged out landing page gives brief information about the app and a help guide as to how the app works. The logged in landing page allows a user user access to their stock list and product list. From these pages they can manipulate their data however they choose to.
+
 ## Future updates
 
 - An orders page where users can specify how many of each product they need to make, and the app with tell them how many they can make, and how much stock they would need to aquire to complete each order.
@@ -73,7 +100,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 - [Google Fonts](https://fonts.google.com/)
 - Git
 - GitHub
-- 
+- jQuery
 
 ## Agile development
 
@@ -128,9 +155,8 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ### Content
 
-
 - Content
-  - 
+  - All content was written by the developer.
 
 ### Acknowledgements
     
