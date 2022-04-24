@@ -1,7 +1,21 @@
-console.log($('.user-row')[0])
+function firstDropdown() {
+    $(this).next('div').slideToggle()
+}
 
-$('.user-row').each( function() {
-    $(this).click( () => {
-        console.log($(this).index()) 
-        console.log($('.products-dropdown')[$(this).index()])
-    })})
+function secondDropdown() {
+    $(this).parent().children('div').slideToggle()
+}
+
+function thirdDropdown() {
+    $(this).next('div').slideToggle()
+}
+
+$(document).ready( function() {
+    $('.parts-dropdown').slideToggle()
+    $('.products-dropdown').slideToggle()
+    $('.stock-list').slideToggle()
+
+    $('.first').click( firstDropdown )
+    $('.second').click( secondDropdown )
+    $('.third').click( thirdDropdown )
+})
