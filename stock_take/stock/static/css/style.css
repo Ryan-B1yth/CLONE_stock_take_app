@@ -56,6 +56,10 @@ h1, .center, .add-new {
 
 .container {
     display: flex;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: 0 auto;
+    gap: 2em;
     justify-content: space-around;
     align-items: center;
     height: calc(100vh - var(--header-height));
@@ -153,4 +157,18 @@ h1, .center, .add-new {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+@media screen and (max-width: 716px) {
+    .main-header {
+        height: 150px;
+    }
+
+    .user-nav {
+        max-width: 100%;
+        min-height: 20px;
+        gap: 3em;
+        bottom: 5%;
+        right: unset;
+    }
 }
