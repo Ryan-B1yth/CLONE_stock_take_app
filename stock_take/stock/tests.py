@@ -1,4 +1,4 @@
-from django.test import TestCase, SimpleTestCase, Client
+from django.test import TestCase, Client
 from django.urls import reverse, resolve
 from django.contrib.auth.models import User
 from .views import (
@@ -10,7 +10,7 @@ from .views import (
     add_parts_to_product,
     product_detail
 )
-from .models import Stock, Product, Parts
+from .models import Stock, Product
 from .forms import StockForm, PartsForm, ProductForm
 
 
@@ -42,12 +42,12 @@ class TestUrls(TestCase):
         """Test add stock"""
         url = reverse('add_new_stock_part')
         self.assertEqual(resolve(url).func, create_new_stock_part)
-    
+
     def test_link_url_is_resolved(self):
         """Test link"""
         url = reverse('add_parts_to_product')
         self.assertEqual(resolve(url).func, add_parts_to_product)
-    
+
     def test_product_detail_url_is_resolved(self):
         """Test product detail"""
         url = reverse('product-detail', kwargs={'pk': 1})
@@ -100,7 +100,7 @@ class TestViews(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'add_product.html')
-    
+
     def test_add_new_stock_part_view_get(self):
         """Test add new stock part GET view"""
         response = self.client.get(self.add_new_stock_part_url)
@@ -141,7 +141,7 @@ class TestForms(TestCase):
         })
 
         self.assertTrue(form.is_valid())
-    
+
     def test_stock_form_invalid(self):
         """Test invalid stock form"""
         form = StockForm(data={
@@ -152,7 +152,7 @@ class TestForms(TestCase):
         })
 
         self.assertFalse(form.is_valid())
-    
+
     def test_product_form_valid(self):
         """Test valid product form"""
         form = ProductForm(data={
@@ -170,7 +170,7 @@ class TestForms(TestCase):
         })
 
         self.assertFalse(form.is_valid())
-    
+
     def test_parts_form_valid(self):
         """Test valid parts form"""
         form = PartsForm(data={
@@ -181,7 +181,7 @@ class TestForms(TestCase):
         })
 
         self.assertTrue(form.is_valid())
-    
+
     def test_parts_form_invalid(self):
         """Test invalid parts form"""
         form = PartsForm(data={
