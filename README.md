@@ -77,16 +77,32 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ### Landing page
 
-- The landing page has two versions of itself: a logged in and a logged out version. The logged out landing page gives brief information about the app and a help guide as to how the app works. The logged in landing page allows a user user access to their stock list and product list. From these pages they can manipulate their data however they choose to.
+- There are two versions of the landing page: logged in and logged out. The logged out landing page gives brief information about the app and a help guide as to how the app works. The logged in landing page allows a user user access to their stock list and product list. From these pages they can manipulate their data however they choose to.
+
+
+### Stock page 
+
+- A list of all a user's stock with links to update each item or add a new one that redirect to easy to follow forms. 
+
+### Products page 
+
+- A list of all a user's products with a count as to how many of each product can be made based on the number of each linked stock item in the stock list. Each product can be navigated into which will display a list of all it's parts. New parts can be added, or parts can be removed, or the whole product can be deleted from here.
+
+### Admin View 
+
+- The Admin View lists all users, all their respective stock and products, and all those product's respective parts. The admin from here can delete any item if it is deemed to be objectionable. 
 
 ## Future updates
 
 - An orders page where users can specify how many of each product they need to make, and the app with tell them how many they can make, and how much stock they would need to aquire to complete each order.
+
 - Roles relevant to different departments. For example:
   - Managers: Full access to all features
   - Sales: Able to add, update, and change orders
   - Storage: Able to change stock numbers and items
   - Production Hands: Able to read data but not able to change or update data.
+
+- Search bars on Stock and Products pages, as well as when linking parts to products for ease of use. Users will be able to fast-track their experience through the site.
 
 ## Languages Used
 
@@ -117,7 +133,15 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 ## Testing
 
 <!-- Talk about unitest first -->
-- The original project was constructed on a laptop with a screen size of 12.3 inches. The code was also put through validators and passed through without any issues.
+- Manual testing of the site was undertaken at every step of development. 
+
+- All URLs were followed to ensure they resolved correctly. An error message page is displayed to a user who tries to navigate to a page they shuoldn't have access to and allows them to navigate back to the home page.
+
+- All CRUD functionality on the user end was tested manually. Products, Stock items, and Product/Part links all work as expected and users only have access to their own data when guided through forms.
+
+- Forms have validation and will not post data if any errors are raised.
+
+- The original project was constructed on a laptop with a screen size of 12.3 inches. The code was put through validators and passed through without any issues.
 
   - [W3C Markup Validator]()
 
