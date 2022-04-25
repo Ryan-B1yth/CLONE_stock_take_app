@@ -132,7 +132,14 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ## Testing
 
-<!-- Talk about unitest first -->
+- A total of 18 automated tests were ran in Django's Unittest. Tests were conducted on URLs, views, and forms. 
+  - For URLs, the automated tests ensured that each page resolved to the correct location. URLs that required arguments to resolve where tested manually using multiple users to ensure they could only access pages with their data on it.
+
+  - For views, automated tests tested for GET requests only. POST request were tested manually.
+
+  - For forms, automated tests were performed for valid and invalid forms. Login and register forms were tested manually:
+    - Logging in and register forms show errors if applicable.
+
 - Manual testing of the site was undertaken at every step of development. 
 
 - All URLs were followed to ensure they resolved correctly. An error message page is displayed to a user who tries to navigate to a page they shuoldn't have access to and allows them to navigate back to the home page.
