@@ -1,6 +1,15 @@
 from django.test import TestCase, SimpleTestCase, Client
 from django.urls import reverse, resolve
-from .views import *
+from django.contrib.auth.models import User
+from .views import (
+    home,
+    admin_view,
+    product_page,
+    create_new_product,
+    create_new_stock_part,
+    add_parts_to_product,
+    product_detail
+)
 from .models import Stock, Product, Parts
 from .forms import StockForm, PartsForm, ProductForm
 
@@ -58,7 +67,10 @@ class TestViews(TestCase):
         self.add_parts_to_product_url = reverse('add_parts_to_product')
         self.product_detail_url = reverse('product-detail', kwargs={'pk': 1})
 
-        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='12345'
+            )
         login = self.client.login(username='testuser', password='12345')
 
     def test_home_view(self):
@@ -101,7 +113,10 @@ class TestForms(TestCase):
     """Test forms"""
     def setUp(self):
         """Setup"""
-        self.user = User.objects.create_user(username='testuser', password='12345')
+        self.user = User.objects.create_user(
+            username='testuser',
+            password='12345'
+            )
         login = self.client.login(username='testuser', password='12345')
 
         self.stock1 = Stock.objects.create(
