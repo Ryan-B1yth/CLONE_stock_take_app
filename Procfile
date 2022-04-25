@@ -1,1 +1,1 @@
-web: gunicorn stock_take.wsgi
+web: gunicorn stock_take.wsgi:application
