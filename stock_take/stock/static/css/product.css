@@ -41,3 +41,7 @@
 .product a:hover {
     text-decoration: underline;
 }
+
+.unit-number {
+    padding-right: 1em;
+}

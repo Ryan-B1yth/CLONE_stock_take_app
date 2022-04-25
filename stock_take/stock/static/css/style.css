@@ -164,11 +164,20 @@ h1, .center, .add-new {
         height: 150px;
     }
 
+    .container {
+        height: calc(60vh - var(--header-height));
+    }
+
     .user-nav {
         max-width: 100%;
         min-height: 20px;
         gap: 3em;
         bottom: 5%;
         right: unset;
+    }
+
+    .center {
+        width: 10ch;
+        text-align: center;
     }
 }

@@ -35,3 +35,12 @@ form .btn, .form-container button {
     cursor: pointer;
 }
 
+@media screen and (max-width: 716px) {
+    .form-container {
+        padding: 1em 0;
+    }
+
+    form input, .form-container button {
+        width: 15em;
+    }
+}
