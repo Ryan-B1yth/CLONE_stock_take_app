@@ -11,7 +11,7 @@
 
 {% if product.company.id == user.id or user.is_staff %}
 
-    <h1>Delete {{ product.name }}</h1>
+    <h1 class="center">Delete {{ product.name }}</h1>
     <h2 class="center">This action cannot be undone.</h2>
 
     <form action="" method="POST">

@@ -9,7 +9,7 @@
 {% block content %}
 
 {% if stock.company.id == user.id or user.is_staff %}
-    <h1>Stock Adjust</h1>
+    <h1 class="center">Stock Adjust</h1>
 
     {% for field in form %}
         {% if field.errors %}
