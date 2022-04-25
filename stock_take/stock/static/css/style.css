@@ -160,6 +160,7 @@ h1, .center, .add-new {
 }
 
 @media screen and (max-width: 716px) {
+    
     .main-header {
         height: 150px;
     }
@@ -179,5 +180,15 @@ h1, .center, .add-new {
     .center {
         width: 10ch;
         text-align: center;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        max-width: 1200px;
+        min-height: 100vh;
+        max-height: auto;
+        margin: 0 auto;
+        box-shadow: var(--shadow-l);
     }
 }
