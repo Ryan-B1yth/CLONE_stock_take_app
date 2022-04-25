@@ -15,13 +15,23 @@
             <h2 class="nav-tab"><a class="nav-tab-link" href="{% url 'products' %}">Products</a></h2>
         {% else %}
             <aside class="side-info tagline">
-                <h2>Interesting tag line</h2>
-                <h3>Continued tag line</h3>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum tempora, odio similique repellat quidem, quod perspiciatis perferendis animi, eveniet delectus hic? Dolorum, mollitia repellat quasi sint eius sapiente consequuntur deserunt?</p>
+                <h2>Welcome to Take Stock!</h2>
+                <h3>Keep your business in check.</h3>
+                <p>Take Stock is a stock take and product information database for your small buisness. Keep track of your products and your stock levels, and get real time data for your peace of mind.</p>
             </aside>
             <aside class="side-info background">
-                <div class="images"></div>
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum tempora, odio similique repellat quidem, quod perspiciatis perferendis animi, eveniet delectus hic? Dolorum, mollitia repellat quasi sint eius sapiente consequuntur deserunt?</p>
+                <div class="images stock-page-img">
+                    <img src="{% static 'assets/images/stock_page.PNG' %}" alt="">
+                </div>
+                <h3>Add your stock</h3>
+                <div class="images">
+                    <img class="products-page-img" src="{% static 'assets/images/products_page.PNG' %}" alt="">
+                </div>
+                <h3>Add your products</h3>
+                <div class="images">
+                    <img class="data-img" src="{% static 'assets/images/data.PNG' %}" alt="">
+                </div>
+                <h3>Get real time data</h3>
             </aside>
         {% endif %}
     
