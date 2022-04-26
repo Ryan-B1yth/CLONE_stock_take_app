@@ -1,1 +1,1 @@
-web: gunicorn stock_take.wsgi:application
+web: gunicorn --pythonpath stock_take stock_take.wsgi:application
