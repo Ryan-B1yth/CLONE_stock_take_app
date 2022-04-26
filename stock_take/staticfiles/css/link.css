@@ -1,0 +1,16 @@
+#added-product {
+    margin: 0 auto;
+    padding: .75em 1.5em;
+    border-radius: 5px;
+    border: 2px solid rgba(0, 0, 0, .3);
+    background-color: #f1e9dc75;
+    color: rgba(0, 0, 0, .5);
+    font-weight: 900;
+    letter-spacing: 2px;
+    min-width: min-content;
+    max-width: max-content; 
+}
+
+.link-to-home {
+    border-bottom: .5px solid #000000;
+}

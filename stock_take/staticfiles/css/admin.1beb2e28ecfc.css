@@ -1,0 +1,63 @@
+.admin-panel {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.admin-panel ::-webkit-scrollbar {
+    height: 5px;
+}
+
+.user-row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: 1px solid #000000;
+    padding: 1em;
+}
+
+h2, h3 {
+    padding: 1em 0;
+}
+
+.user-row .btn {
+    padding: .5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-row input {
+    width: fit-content;
+    margin: .5em 0;
+}
+
+.products-dropdown {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.products-dropdown ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.products-dropdown ul li {
+    padding: 1em 0;
+    border-bottom: 1px solid #000000;
+}
+
+.stock-list h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.stock-list h3 span {
+    min-width: 30%;
+    max-width: 30%;
+    overflow: auto;
+    text-align: left;
+}

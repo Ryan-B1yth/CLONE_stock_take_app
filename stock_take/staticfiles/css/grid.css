@@ -1,0 +1,66 @@
+.grid {
+    display: grid;
+    min-width: 80%;
+    max-width: 90%;
+    margin: 2em auto;
+    grid-auto-flow: row;
+    grid-column: repeat(12, 1fr);
+}
+
+.grid-headings {
+    display: grid;
+    height: 3em;
+}
+
+.grid-row {
+    display: grid;
+    align-items: center;
+    grid-auto-flow: column;
+    padding: .5em 0;
+    border-top: 1px solid #000000;
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+    gap: .5em;
+}
+
+.grid-5 {
+    grid-template-columns: repeat(5, 1fr);
+    gap: .5em;
+}
+
+.grid-4 > *, .grid-5 > * {
+    max-width: 100%;
+    overflow-x: scroll;
+}
+
+.grid-4 ::-webkit-scrollbar, .grid-5 ::-webkit-scrollbar {
+    display: none;
+}
+
+.update {
+    text-align: end;
+}
+
+.grid-buttons {
+    display: flex;
+    justify-content: space-around;
+    padding: 3em 0;
+}
+
+.grid-buttons a {
+    width: 20%;
+}
+
+.grid-buttons a input {
+    width: 100%;
+    cursor: pointer;
+}
+
+.grid-btn {
+    width: 20%;
+    height: 3em;
+    border-radius: 5px;
+}
+
