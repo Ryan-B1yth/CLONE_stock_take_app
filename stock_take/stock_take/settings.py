@@ -72,7 +72,7 @@ WSGI_APPLICATION = 'stock_take.wsgi.application'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.parse('postgres://oejiwhuwvbhoqh:d205019fe4dcd119e903a53d94c274c4f75b31acf423aa8c28d07d3077c808bc@ec2-176-34-211-0.eu-west-1.compute.amazonaws.com:5432/dfj366bc6ac3ou')
+    'default': dj_database_url.parse('postgres://mggqgpyxiuyczo:d920b8492845dd6004d25aa3aeb621c0b0d11b6025269ffb01169196e999383a@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbbn37qcb9856m')
 }
 
 
