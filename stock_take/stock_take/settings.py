@@ -16,7 +16,9 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'pk2(+&k1#qtsk6vdr-tz73+v3^a3-5klqh914
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    os.environ.get('take-stock-app.herokuapp.com')
+    os.environ.get('take-stock-app.herokuapp.com'),
+    '127.0.0.1', 
+    'localhost'
 ]
 
 
