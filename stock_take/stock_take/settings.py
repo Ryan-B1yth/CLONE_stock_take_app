@@ -17,7 +17,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     # os.environ.get('take-stock-app.herokuapp.com'),
-    os.environ.get('https://take-stock-app-v2.herokuapp.com'),
+    # os.environ.get('https://take-stock-app-v2.herokuapp.com'),
+    'take-stock-app-v2.herokuapp.com',
     '127.0.0.1',
     'localhost'
 ]
