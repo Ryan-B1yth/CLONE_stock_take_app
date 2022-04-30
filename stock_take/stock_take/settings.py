@@ -12,16 +12,19 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'pk2(+&k1#qtsk6vdr-tz73+v3^a3-5klqh914mh^s9gfb4jv5z') 
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+development = os.environ.get('DEVELOPMENT', False)
 
-ALLOWED_HOSTS = [
-    # os.environ.get('take-stock-app.herokuapp.com'),
-    # os.environ.get('https://take-stock-app-v2.herokuapp.com'),
-    'take-stock-app-v2.herokuapp.com',
-    '127.0.0.1',
-    'localhost'
-]
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = development
+
+
+if development:
+    ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+else:
+    ALLOWED_HOSTS = [
+        'take-stock-app-v2.herokuapp.com'
+    ]
 
 
 # Application definition
@@ -73,9 +76,18 @@ WSGI_APPLICATION = 'stock_take.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': dj_database_url.parse('postgres://mggqgpyxiuyczo:d920b8492845dd6004d25aa3aeb621c0b0d11b6025269ffb01169196e999383a@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbbn37qcb9856m')
-}
+
+if development:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+    DATABASES = {
+        'default': dj_database_url.parse('postgres://mggqgpyxiuyczo:d920b8492845dd6004d25aa3aeb621c0b0d11b6025269ffb01169196e999383a@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbbn37qcb9856m')
+    }
 
 
 # Password validation
