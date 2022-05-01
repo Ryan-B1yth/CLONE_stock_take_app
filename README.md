@@ -68,27 +68,27 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
   
 - Home page
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/wireframes/home.jpg" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/home_page_1.PNG" style="max-height: 300px;">
 
 - Logged in home page
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/wireframes/logged_in_home.jpg" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/home_page_2.PNG" style="max-height: 300px;">
 
 - Lists
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/wireframes/stock.jpg" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/stock_page.PNG" style="max-height: 300px;">
 
 - Product page
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/wireframes/products.jpg" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/products_page.PNG" style="max-height: 300px;">
 
 - Forms
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/wireframes/form.jpg" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/form.PNG" style="max-height: 300px;">
 
 - Admin
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/wireframes/admin.jpg" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/admin_view.PNG" style="max-height: 300px;">
 
 
 <!-- HTML used instead of markdown to control image size as images were very large when testing. -->
@@ -104,28 +104,34 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 - There are two versions of the landing page: logged in and logged out. The logged out landing page gives brief information about the app and a help guide as to how the app works. The logged in landing page allows a user user access to their stock list and product list. From these pages they can manipulate their data however they choose to.
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/images/home_page_1.PNG" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/home_page_1.PNG" style="max-height: 300px;">
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/images/home_page_2.PNG" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/home_page_2.PNG" style="max-height: 300px;">
 
 
 ### Stock page 
 
 - A list of all a user's stock with links to update each item or add a new one that redirect to easy to follow forms. 
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/images/README_stock_page.PNG" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/stock_page.PNG" style="max-height: 300px;">
 
 ### Products page 
 
 - A list of all a user's products with a count as to how many of each product can be made based on the number of each linked stock item in the stock list. Each product can be navigated into which will display a list of all it's parts. New parts can be added, or parts can be removed, or the whole product can be deleted from here.
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/images/README_product_page.PNG" style="max-height: 300px;">
+<img src="/workspace/CLONE_stock_take_app/stock_take/staticfiles/assets/images/products_page.PNG" style="max-height: 300px;">
+
+### Forms 
+
+- All forms follow a similar design motif with placeholders, all centered on the page to ensure ease of use.
+
+<img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/form.PNG" style="max-height: 300px;">
 
 ### Admin View 
 
 - The Admin View lists all users, all their respective stock and products, and all those product's respective parts. The admin from here can delete any item if it is deemed to be objectionable. 
 
-<img src="/workspace/stock_take_app/stock_take/stock/static/assets/images/admin_view.PNG">
+<img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/admin_view.PNG">
 
 ## Future updates
 
@@ -202,7 +208,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 <!-- Heroku deployment here -->
 <!-- Deployment code and content taken straight from Code Institutes README template -->
 
-- You can view the live site [here]().
+- You can view the live site [here](https://take-stock-app-v2.herokuapp.com/).
 
 ## Credits 
 
