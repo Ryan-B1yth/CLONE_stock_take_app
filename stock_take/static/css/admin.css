@@ -1,3 +1,7 @@
+.admin-panel a {
+    font-size: .85rem;
+}
+
 .admin-panel {
     width: 80%;
     margin: 0 auto;

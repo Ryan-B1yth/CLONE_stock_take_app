@@ -18,12 +18,12 @@
     {% endfor %}
 
     <div class="form-container">
-        <form action="" method="POST">
+        <form method="POST">
             {% csrf_token %}
             {{ parts_form }}
             
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">
-            <a href="{% url 'product-detail' default_product.id %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
+            <a href="{% url 'product-detail' default_product.id %}">Cancel</a>
 
         </form>
     </div>

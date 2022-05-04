@@ -15,7 +15,7 @@
         {% endif %}
     {% endfor %}
 
-    <form action="" method="POST">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input class="btn btn-submit btn-hover" type="submit" value="Register">

@@ -20,12 +20,10 @@
                             {% if product.company.id == user.id %}
                                 <li><h3>{{ product }}</h3>
                                     <input class="second btn btn-submit" value="Parts" type="button">
-                                    <a href="{% url 'delete-product' product.id %}">
-                                        <input type="button" class="btn btn-delete" value="Delete">
-                                    </a>
+                                    <a class="btn btn-delete" href="{% url 'delete-product' product.id %}">Delete</a>
                                     <div class="parts-dropdown">
+                                        <h2>Part list</h2>
                                         <ul>
-                                            <h2>Part list</h2>
                                             {% for part in parts %}
                                                 {% if part.product_part_belongs_to.id == product.id %}
                                                     {% if part.company.id == user.id %}
@@ -45,7 +43,7 @@
                     <h2>Stock list</h2>
                     {% for item in stock %}
                         {% if item.company.id == user.id %}
-                            <h3><span>Name : {{ item.name }}</span><span>Code : {{ item.code }}</span><span>Number in stock : {{ item.number_in_stock }}</span> <a href="{% url 'update-stock' item.id %}"><input class="btn btn-submit" type="button" value="Update"></a></h3>
+                            <h3><span>Name : {{ item.name }}</span><span>Code : {{ item.code }}</span><span>Number in stock : {{ item.number_in_stock }}</span> <a class="btn btn-submit" href="{% url 'update-stock' item.id %}">Update</a></h3>
                         {% endif %}
                     {% endfor %}
                 </div>

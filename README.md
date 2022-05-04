@@ -158,6 +158,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 - Git
 - GitHub
 - jQuery
+- Whitenoise
 
 ## Agile development
 
