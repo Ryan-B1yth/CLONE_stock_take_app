@@ -1,6 +1,6 @@
-let addedPart = document.getElementById('added-part')
+let addedPart = document.getElementById('added-part');
 
 if (addedPart.innerText == "") {
-    addedProduct = document.getElementById('added-product')
-    addedProduct.style.display = 'none'
+    let addedProduct = document.getElementById('added-product');
+    addedProduct.style.display = 'none';
 }

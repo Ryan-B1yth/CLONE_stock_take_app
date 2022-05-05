@@ -1,4 +1,4 @@
 
 $('#dropdown').click( () => 
     $('#links').slideToggle()
-)
+);
