@@ -10,7 +10,7 @@
     <h1 class="center">{{ product }} parts</h1>
 
     {% if not product_parts %}
-        <h2 class="center">This product has no parts!</h3>
+        <h2 class="center">This product has no parts!</h2>
     {% else %}
         <div class="grid">
             <div class="grid-headings grid-5">
@@ -42,8 +42,8 @@
 
     {% endif %}
             <div class="grid-buttons">
-                <a href="{% url 'add_more_parts' product.pk %}"><input class="btn grid-btn btn-submit btn-hover" type="button" value="Add a part"></input></a>
-                <a href="{% url 'delete-product' product.id %}"><input class="btn grid-btn btn-delete btn-hover" type="button" value="Delete"></input></a>
+                <a class="btn grid-btn btn-submit btn-hover" href="{% url 'add_more_parts' product.pk %}">Add a part</a>
+                <a class="btn grid-btn btn-delete btn-hover" href="{% url 'delete-product' product.id %}">Delete</a>
             </div>
         </div>
 

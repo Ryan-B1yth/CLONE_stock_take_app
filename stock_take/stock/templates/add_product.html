@@ -21,7 +21,9 @@
             {{ product_form }}
             
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">
-            <a class="btn btn-cancel btn-hover" href="{% url 'products' %}">Cancel</a>
+            <div class="cancel center btn btn-cancel btn-hover">
+                <a href="{% url 'products' %}">Cancel</a>
+            </div>
 
         </form>
     </div>

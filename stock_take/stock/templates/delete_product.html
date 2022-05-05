@@ -12,12 +12,14 @@
     <h1 class="center">Delete {{ product.name }}</h1>
     <h2 class="center">This action cannot be undone.</h2>
 
-    <form action="" method="POST">
+    <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
 
         <input class="btn btn-delete btn-hover" type="submit" value="Delete">
-        <a href="{% url 'product-detail' product.id %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
+        <div class="cancel center btn btn-cancel btn-hover">
+            <a href="{% url 'product-detail' product.id %}">Cancel</a>
+        </div>
 
     </form>
 

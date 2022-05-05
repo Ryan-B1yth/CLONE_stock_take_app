@@ -17,7 +17,7 @@
     {% endfor %}
 
     <div class="form-container">
-        <form action="" method="POST">
+        <form method="POST">
             {% csrf_token %}
             {{ parts_form }}
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">

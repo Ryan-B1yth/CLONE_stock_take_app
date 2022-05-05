@@ -23,7 +23,9 @@
             {{ parts_form }}
             
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">
-            <a href="{% url 'product-detail' default_product.id %}">Cancel</a>
+            <div class="cancel center btn btn-cancel btn-hover">
+                <a href="{% url 'product-detail' default_product.id %}">Cancel</a>
+            </div>
 
         </form>
     </div>

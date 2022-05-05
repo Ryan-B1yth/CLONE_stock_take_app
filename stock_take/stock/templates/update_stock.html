@@ -17,12 +17,17 @@
     {% endfor %}
 
     <div class="form-container">
-        <form action="" method="POST">
+        <form method="POST">
             {% csrf_token %}
             {{ form.as_p }}
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">
-            <a href="{% url 'delete-stock' stock.id %}"><input class="btn btn-delete btn-hover" type="button" value="Delete"></a>
-            <a href="{% url 'stock' %}"><input class="btn btn-cancel btn-hover" type="button" value="Cancel"></a>
+            <div class="form-anchors">
+                <a class="btn btn-delete btn-hover" href="{% url 'delete-stock' stock.id %}">Delete</a>
+                <div class="center cancel btn btn-cancel btn-hover">
+                    <a href="{% url 'stock' %}">Cancel</a>
+                </div>
+            </div>
+            
         </form>
     </div>
 

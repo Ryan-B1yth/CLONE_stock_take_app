@@ -21,7 +21,9 @@
             {{ stock_form }}
             
             <input class="btn btn-submit btn-hover" type="submit" value="Submit">
-            <a href="{% url 'stock' %}">Cancel</a>
+            <div class="cancel center btn btn-cancel btn-hover">
+                <a href="{% url 'stock' %}">Cancel</a>
+            </div>
 
         </form>
     </div>

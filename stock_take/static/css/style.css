@@ -67,6 +67,7 @@ h1, .center, .add-new {
 
 .btn {
     border: none;
+    font-size: 14px;
 }
 
 .btn-delete {
