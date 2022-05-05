@@ -4,7 +4,6 @@
     max-width: 90%;
     margin: 2em auto;
     grid-auto-flow: row;
-    grid-column: repeat(12, 1fr);
 }
 
 .grid-headings {
