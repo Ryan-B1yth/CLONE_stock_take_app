@@ -131,7 +131,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 - The Admin View lists all users, all their respective stock and products, and all those product's respective parts. The admin from here can delete any item if it is deemed to be objectionable. 
 
-<img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/admin_view.PNG">
+<img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/admin_view.PNG" style="max-height: 300px;">
 
 ## Future updates
 
@@ -201,13 +201,65 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 - Google Chrome's DevTools Lighthouse:
   - Desktop
-        ![Lighthouse score for desktop]()
+    <img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/lighthouse_score.PNG" style="max-height: 300px;">
   - Mobile
-        ![Lighthouse score for mobile]()
+    <img src="/workspace/CLONE_stock_take_app/stock_take/static/assets/images/mobile_lighthouse_score.PNG" style="max-height: 300px;">
+        
 
 ## Deployment 
 <!-- Heroku deployment here -->
-<!-- Deployment code and content taken straight from Code Institutes README template -->
+- The project was deployed on Heroku through the CLI following Code Institute's instructions. During development there was a data breach with GitHub and subsequently, Heroku limited its connection to the platform. As such, the steps taken to deploy the project were as follows:
+  - Install:
+    - pyscopg2-binary
+    - gunicorn
+    - dj-database-url
+    - whitenoise
+
+ In the CLI, enter following commands:
+  - `heroku login -i`
+    - Login using your email and password.
+  - `pip3 freeze --local > requirements.txt`
+  - `heroku apps:create APPNAME --region eu`
+- In the Heroku app dashboard:
+  - Add Heroku Postgress in Resources.
+  - In settings, reveal the config vars and create a SECRET_KEY variable using a Django secret key generator.
+- In Git:
+  - Add `*.sqlite3` and `__pycache__/` to the .gitignore file.
+  - Create a Procfile and add `web: gunicorn --pythonpath PROJECTNAME APPNAME.wsgi:application` where APPNAME is the folder that contains the settings.py file.
+  - In workspaces:
+    - Create a SECRET_KEY variable that is different to the Heroku secret key.
+    - Create a DEVELOPMENT variable equal to `True`.
+  - In settings.py:
+    
+        SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
+
+        development = os.environ.get('DEVELOPMENT', False)
+        DEBUG = development
+
+        if development:
+            ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+        else:
+            ALLOWED_HOSTS = [
+                'take-stock-app-v2.herokuapp.com'
+            ]
+    
+        if development:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+            }
+        }
+        else:
+            DATABASES = {
+                'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+            }
+
+
+  - Add, commit with the message "Prepare to push to Heroku, set up development environment", and push to GitHub.
+  - Push to heroku with `git push heroku main`.
+
 
 - You can view the live site [here](https://take-stock-app-v2.herokuapp.com/).
 
