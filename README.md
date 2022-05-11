@@ -68,27 +68,27 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
   
 - Home page
 
-<img src="stock_take/staticfiles/assets/images/home_page_1.PNG" style="max-height: 300px;">
+<img src="stock_take/static/assets/wireframes/home.jpg" style="max-height: 300px;">
 
 - Logged in home page
 
-<img src="stock_take/staticfiles/assets/images/home_page_2.PNG" style="max-height: 300px;">
+<img src="stock_take/static/assets/wireframes/logged_in_home.jpg" style="max-height: 300px;">
 
 - Lists
 
-<img src="stock_take/staticfiles/assets/images/stock_page.PNG" style="max-height: 300px;">
+<img src="stock_take/static/assets/wireframes/stock.jpg" style="max-height: 300px;">
 
 - Product page
 
-<img src="stock_take/staticfiles/assets/images/products_page.PNG" style="max-height: 300px;">
+<img src="stock_take/static/assets/wireframes/products.jpg" style="max-height: 300px;">
 
 - Forms
 
-<img src="stock_take/static/assets/images/form.PNG" style="max-height: 300px;">
+<img src="stock_take/static/assets/wireframes/form.jpg" style="max-height: 300px;">
 
 - Admin
 
-<img src="stock_take/static/assets/images/admin_view.PNG" style="max-height: 300px;">
+<img src="stock_take/static/assets/wireframes/admin.jpg" style="max-height: 300px;">
 
 
 <!-- HTML used instead of markdown to control image size as images were very large when testing. -->
