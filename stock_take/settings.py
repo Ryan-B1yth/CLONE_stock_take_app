@@ -85,9 +85,9 @@ if development:
         }
     }
 else:
-    DATABASES = {
-        'default': dj_database_url.parse('postgres://mggqgpyxiuyczo:d920b8492845dd6004d25aa3aeb621c0b0d11b6025269ffb01169196e999383a@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbbn37qcb9856m')
-    }
+    # DATABASE_URL = os.getenv('DATABASE_URL')
+    # dj_database_url.config()
+    dj_database_url.parse(os.environ.get('postgres://mggqgpyxiuyczo:d920b8492845dd6004d25aa3aeb621c0b0d11b6025269ffb01169196e999383a@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbbn37qcb9856m'))
 
 
 # Password validation
