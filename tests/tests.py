@@ -78,35 +78,35 @@ class TestViews(TestCase):
         response = self.client.get(self.home_url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'home.html')
+        self.assertTemplateUsed(response, 'stock/home.html')
 
     def test_admin_view_view(self):
         """Test admin view"""
         response = self.client.get(self.admin_view_url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'admin_view.html')
+        self.assertTemplateUsed(response, 'stock/admin_view.html')
 
     def test_products_view(self):
         """Test products view"""
         response = self.client.get(self.products_url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'products.html')
+        self.assertTemplateUsed(response, 'stock/products.html')
 
     def test_add_new_product_view_get(self):
         """Test add new product GET view"""
         response = self.client.get(self.add_new_product_url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'add_product.html')
+        self.assertTemplateUsed(response, 'stock/add_product.html')
 
     def test_add_new_stock_part_view_get(self):
         """Test add new stock part GET view"""
         response = self.client.get(self.add_new_stock_part_url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'add_stock_part.html')
+        self.assertTemplateUsed(response, 'stock/add_stock_part.html')
 
 
 class TestForms(TestCase):

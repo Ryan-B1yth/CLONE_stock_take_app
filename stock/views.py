@@ -15,7 +15,7 @@ def home(request):
     """
     Home page
     """
-    return render(request, 'home.html', {})
+    return render(request, 'stock/home.html', {})
 
 
 def admin_view(request):
@@ -33,7 +33,7 @@ def admin_view(request):
         'stock': stock
     }
 
-    return render(request, 'admin_view.html', context)
+    return render(request, 'stock/admin_view.html', context)
 
 
 def product_page(request):
@@ -79,7 +79,7 @@ def product_page(request):
         'number_to_be_made': number_to_be_made,
         'default_user': default_user
     }
-    return render(request, 'products.html', context)
+    return render(request, 'stock/products.html', context)
 
 
 def stock_page(request):
@@ -91,7 +91,7 @@ def stock_page(request):
     context = {
         'stock': stock,
     }
-    return render(request, 'stock.html', context)
+    return render(request, 'stock/stock.html', context)
 
 
 def create_new_product(request):
@@ -114,7 +114,7 @@ def create_new_product(request):
         'product_form': product_form,
     }
 
-    return render(request, 'add_product.html', context)
+    return render(request, 'stock/add_product.html', context)
 
 
 def create_new_stock_part(request):
@@ -138,7 +138,7 @@ def create_new_stock_part(request):
         'stock_form': stock_form,
     }
 
-    return render(request, 'add_stock_part.html', context)
+    return render(request, 'stock/add_stock_part.html', context)
 
 
 def add_parts_to_product(request):
@@ -172,7 +172,7 @@ def add_parts_to_product(request):
     context['parts_form'] = parts_form
     context['default_user'] = default_user
 
-    return render(request, 'link_parts_to_product.html', context)
+    return render(request, 'stock/link_parts_to_product.html', context)
 
 
 def add_more_parts(request, pk):
@@ -207,7 +207,7 @@ def add_more_parts(request, pk):
     context['parts_form'] = parts_form
     context['default_user'] = default_user
 
-    return render(request, 'add_more_parts.html', context)
+    return render(request, 'stock/add_more_parts.html', context)
 
 
 def product_detail(request, pk):
@@ -223,7 +223,7 @@ def product_detail(request, pk):
         'product_parts': product_parts,
         'product': product,
     }
-    return render(request, 'product_detail.html', context)
+    return render(request, 'stock/product_detail.html', context)
 
 
 class UpdateStock(UpdateView):
@@ -231,7 +231,7 @@ class UpdateStock(UpdateView):
     Update stock
     """
     model = Stock
-    template_name = 'update_stock.html'
+    template_name = 'stock/update_stock.html'
     form_class = StockForm
     success_url = reverse_lazy('stock')
 
@@ -241,7 +241,7 @@ class DeleteStockView(DeleteView):
     Delete an item from stock model
     """
     model = Stock
-    template_name = 'delete_stock.html'
+    template_name = 'stock/delete_stock.html'
     success_url = reverse_lazy('stock')
 
 
@@ -250,7 +250,7 @@ class DeletePartView(DeleteView):
     Delete a part from part model
     """
     model = Parts
-    template_name = 'delete_part.html'
+    template_name = 'stock/delete_part.html'
     success_url = reverse_lazy('products')
 
 
@@ -259,5 +259,5 @@ class DeleteProductView(DeleteView):
     Delete aproduct from product model
     """
     model = Product
-    template_name = 'delete_product.html'
+    template_name = 'stock/delete_product.html'
     success_url = reverse_lazy('products')
