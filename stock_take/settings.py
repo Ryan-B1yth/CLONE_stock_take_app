@@ -1,6 +1,12 @@
+"""
+Imports
+"""
 from pathlib import Path
 import os
 import dj_database_url
+if os.path.isfile('env.py'):
+    import env
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
@@ -87,10 +93,9 @@ if development:
         }
     }
 else:
-    # DATABASE_URL = os.getenv('DATABASE_URL')
-    # dj_database_url.config()
-    dj_database_url.parse(os.environ.get('postgres://mggqgpyxiuyczo:d920b8492845dd6004d25aa3aeb621c0b0d11b6025269ffb01169196e999383a@ec2-52-30-67-143.eu-west-1.compute.amazonaws.com:5432/dbbn37qcb9856m'))
-
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
