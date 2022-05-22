@@ -12,9 +12,16 @@
 }
 
 form {
-    width: min-content;
+    width: 15em;
     min-height: 50vh;
     margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+form p {
+    width: inherit;
 }
 
 form ul li, form label {
@@ -23,7 +30,7 @@ form ul li, form label {
 
 form input, .form-container button {
     height: 4em;
-    width: 20em;
+    width: 100%;
     margin: 1em 0 1.25em 0;
     text-align: center;
     border: none;
