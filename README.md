@@ -188,45 +188,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ## **Testing**
 
-- A total of 18 automated tests were ran in Django's Unittest. Tests were conducted on URLs, views, and forms in their own respective files.
-  - For URLs, the automated tests ensured that each page resolved to the correct location. URLs that required arguments to resolve where tested manually using multiple users to ensure they could only access pages with their data on it.
-
-  - For views, automated tests tested for GET requests only. POST request were tested manually.
-
-  - For forms, automated tests were performed for valid and invalid forms. Login and register forms were tested manually:
-    - Logging in and register forms show errors if applicable.
-
-- Manual testing of the site was undertaken at every step of development. 
-
-- All URLs were followed to ensure they resolved correctly. An error message page is displayed to a user who tries to navigate to a page they shuoldn't have access to and allows them to navigate back to the home page.
-
-- All CRUD functionality on the user end was tested manually. Products, Stock items, and Product/Part links all work as expected and users only have access to their own data when guided through forms.
-
-- Forms have validation and will not post data if any errors are raised.
-
-- The original project was constructed on a laptop with a screen size of 12.3 inches. The code was put through validators and passed through without any issues.
-
-  - [W3C Markup Validator]()
-
-  - [W3C CSS Validator]()
-
-  - Javascript Validator - JShint
-  <!-- Images here -->
-
-  - The JavaScript code was passed with /* jshint esversion: 6 */ above it which removed warnings for setting variables with 'let'.
-
-### Known bugs
-
-## **Further testing**
-- The site was tested on Google Chrome using their developer tools and viewed on Firefox, Microsoft Edge, and Safari to ensure it worked across multiple platforms. The site was also viewed on multiple devices of varying screen sizes.
-<!-- Say more  -->
-
-- Google Chrome's DevTools Lighthouse:
-  - Desktop
-    <img src="static/assets/images/lighthouse_score.PNG" style="max-height: 300px;">
-  - Mobile
-    <img src="static/assets/images/mobile_lighthouse_score.PNG" style="max-height: 300px;">
-        
+You can read through the testing documentation [here](static/docs/TESTING.md).
 
 ## **Deployment** 
 <!-- Heroku deployment here -->
