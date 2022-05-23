@@ -1,13 +1,35 @@
 # Take Stock
 
-![4 size view of the website's home page]()
+![4 size view of the website's home page](static/assets/images/4_screen_view.PNG)
 
 <!-- Description -->
 Take Stock is a data handling app for small buisnesses to take care of their stock and product information. A company can create a profile, add stock items, add products, and then link stock items to each product. The app will then tell the user exactly how many of each product they can make based on what they have in stock. 
 
-## User Experience (UX)
+# Contents
+- [**User Experience (UX)**](#user-experience-ux)
+  - [**User Stories / Epics**](#user-stories--epics)
+- [**Design**](#design)
+- [**Features**](#features)
+  - [**Existing features**](#existing-features)
+    - [**Landing page**](#landing-page)
+    - [**Stock page**](#stock-page)
+    - [**Products page**](#products-page)
+    - [**Forms**](#forms)
+    - [**Admin View**](#admin-view)
+- [**Future updates**](#future-updates)
+- [**Languages used**](#languages-used)
+- [**Frameworks used**](#frameworks-used)
+-[**Agile Development**](#agile-development)
+- [**Testing**](#testing)
+  - [**Further testing**](#further-testing)
+- [**Deployment**](#deployment)
+- [**Credits**](#credits)
+  - [**Code**](#code)
+  - [**Content**](#content)
+  - [**Acknowledgements**](#acknowledgements)
+## **User Experience (UX)**
 
-### User Stories / Epics 
+### **User Stories / Epics** 
 
 - Epic
   - As a user/company, I'd like to have an app where I can store information about my products; including its:
@@ -52,7 +74,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
   - Allow users to update and delete their data as they choose to.
   - Allow the admin access to all user data.
 
-### Design
+### **Design**
 - Color Scheme
   - Sleek, black on white with sophisticated color scheme accents to portray professionalism.
 
@@ -93,14 +115,14 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 <!-- HTML used instead of markdown to control image size as images were very large when testing. -->
 
-## Features
+## **Features**
 
-### Existing features
+### **Existing features**
 - Users can add stock and products, as well as link stock items to products.
 - The app will show users exactly how many of each product the user can make given the amount of stock they have.
 - The app has all features of CRUD functionality.
 
-### Landing page
+### **Landing page**
 
 - There are two versions of the landing page: logged in and logged out. The logged out landing page gives brief information about the app and a help guide as to how the app works. The logged in landing page allows a user user access to their stock list and product list. From these pages they can manipulate their data however they choose to.
 
@@ -109,31 +131,31 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 <img src="staticfiles/assets/images/home_page_2.PNG" style="max-height: 300px;">
 
 
-### Stock page 
+### **Stock page** 
 
 - A list of all a user's stock with links to update each item or add a new one that redirect to easy to follow forms. 
 
 <img src="staticfiles/assets/images/stock_page.PNG" style="max-height: 300px;">
 
-### Products page 
+### **Products page** 
 
 - A list of all a user's products with a count as to how many of each product can be made based on the number of each linked stock item in the stock list. Each product can be navigated into which will display a list of all it's parts. New parts can be added, or parts can be removed, or the whole product can be deleted from here.
 
 <img src="staticfiles/assets/images/products_page.PNG" style="max-height: 300px;">
 
-### Forms 
+### **Forms** 
 
 - All forms follow a similar design motif with placeholders, all centered on the page to ensure ease of use.
 
 <img src="static/assets/images/form.PNG" style="max-height: 300px;">
 
-### Admin View 
+### **Admin View** 
 
 - The Admin View lists all users, all their respective stock and products, and all those product's respective parts. The admin from here can delete any item if it is deemed to be objectionable. 
 
 <img src="static/assets/images/admin_view.PNG" style="max-height: 300px;">
 
-## Future updates
+## **Future updates**
 
 - An orders page where users can specify how many of each product they need to make, and the app with tell them how many they can make, and how much stock they would need to aquire to complete each order.
 
@@ -145,14 +167,14 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 - Search bars on Stock and Products pages, as well as when linking parts to products for ease of use. Users will be able to fast-track their experience through the site.
 
-## Languages Used
+## **Languages Used**
 
 - HTML5
 - CSS3
 - JavaScript
 - Python and Django
 
-## Frameworks used
+## **Frameworks used**
 
 - [Google Fonts](https://fonts.google.com/)
 - Git
@@ -160,11 +182,11 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 - jQuery
 - Whitenoise
 
-## Agile development
+## **Agile development**
 
 - The project was constructed using Agile methodology, as can be seen in the GitHub repository's Projects section. 
 
-## Testing
+## **Testing**
 
 - A total of 18 automated tests were ran in Django's Unittest. Tests were conducted on URLs, views, and forms in their own respective files.
   - For URLs, the automated tests ensured that each page resolved to the correct location. URLs that required arguments to resolve where tested manually using multiple users to ensure they could only access pages with their data on it.
@@ -195,7 +217,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ### Known bugs
 
-## Further testing
+## **Further testing**
 - The site was tested on Google Chrome using their developer tools and viewed on Firefox, Microsoft Edge, and Safari to ensure it worked across multiple platforms. The site was also viewed on multiple devices of varying screen sizes.
 <!-- Say more  -->
 
@@ -206,7 +228,7 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
     <img src="static/assets/images/mobile_lighthouse_score.PNG" style="max-height: 300px;">
         
 
-## Deployment 
+## **Deployment** 
 <!-- Heroku deployment here -->
 - The project was deployed on Heroku through the CLI following Code Institute's instructions. During development there was a data breach with GitHub and subsequently, Heroku limited its connection to the platform. As such, the steps taken to deploy the project were as follows:
   - Install:
@@ -263,19 +285,20 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 - You can view the live site [here](https://take-stock-app-v2.herokuapp.com/).
 
-## Credits 
+## **Credits** 
 
-### Code
+### **Code**
 
 - Code
   - All code was written by the developer.
 
-### Content
+### **Content**
 
 - Content
-  - All content was written by the developer.
+  - All template files were written by the developer.
+  - User information is written by said respective user.
 
-### Acknowledgements
+### **Acknowledgements**
     
 - Tutor support at Code Institute for all their support throughout.
 
