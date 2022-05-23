@@ -52,6 +52,7 @@ form .btn, .form-container button {
 }
 
 .form-anchors {
+    min-width: 100%;
     max-width: inherit;
     display: flex;
     flex-wrap: wrap;
