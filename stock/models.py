@@ -52,4 +52,5 @@ class Parts(models.Model):
     company = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
     def __str__(self):
-        return f'{self.product_part_belongs_to} {self.item.name} {self.number_required}'
+        return f'{self.company} | {self.product_part_belongs_to} | ' \
+            f'{self.item.name} | {self.number_required}'

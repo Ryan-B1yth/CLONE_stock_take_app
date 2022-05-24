@@ -1,3 +1,6 @@
+"""
+Imports
+"""
 from django import forms
 from .models import Product, Stock, Parts
 

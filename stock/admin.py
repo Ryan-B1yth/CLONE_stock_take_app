@@ -1,3 +1,6 @@
+"""
+Imports
+"""
 from django.contrib import admin
 from .models import Stock, Product, Parts
 

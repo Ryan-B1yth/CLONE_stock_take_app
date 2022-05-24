@@ -1,6 +1,7 @@
 """
 Imports
 """
+# Docstring only for PEP8 compliance
 
 
 def base(request):
