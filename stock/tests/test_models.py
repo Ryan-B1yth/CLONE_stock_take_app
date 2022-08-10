@@ -14,7 +14,7 @@ class TestModels(TestCase):
             password='12345'
             )
         login = self.client.login(username='testuser', password='12345')
-         
+
         self.test_stock = Stock.objects.create(
             name='test_stock',
             code='0000',
@@ -37,11 +37,11 @@ class TestModels(TestCase):
     def test_stock_return_string(self):
         """Test stock return string"""
         self.assertEqual(str(self.test_stock), 'test_stock | 0000 | 1')
-    
+
     def test_product_return_string(self):
         """Test product return string"""
         self.assertEqual(str(self.test_product), 'test_product')
-    
+
     def test_parts_return_string(self):
         """Test parts return string"""
         self.assertEqual(str(self.test_part), 'test_product test_stock 1')
