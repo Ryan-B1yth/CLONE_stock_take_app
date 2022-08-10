@@ -6,6 +6,8 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.views.generic import UpdateView, DeleteView
 from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Product, Stock, Parts
 from .forms import ProductForm, StockForm, PartsForm
@@ -109,6 +111,7 @@ def create_new_product(request):
     if request.method == 'POST':
         if product_form.is_valid():
             product_form.save()
+            messages.success(request, 'Product created successfully.')
             return HttpResponseRedirect('link/')
     context = {
         'product_form': product_form,
@@ -132,6 +135,7 @@ def create_new_stock_part(request):
     if request.method == 'POST':
         if stock_form.is_valid():
             stock_form.save()
+            messages.success(request, 'Item created successfully.')
             return HttpResponseRedirect('/stock/')
 
     context = {
@@ -162,6 +166,7 @@ def add_parts_to_product(request):
     if request.method == 'POST':
         if parts_form.is_valid():
             parts_form.save()
+        messages.success(request, 'Part added successfully.')
         if len(added_part) == 0:
             added = Parts.objects.latest('id')
             added_part.append(added.item.name)
@@ -197,6 +202,7 @@ def add_more_parts(request, pk):
     if request.method == 'POST':
         if parts_form.is_valid():
             parts_form.save()
+        messages.success(request, 'Part added successfully.')
         if len(added_part) == 0:
             added = Parts.objects.latest('id')
             added_part.append(added.item.name)
@@ -226,7 +232,7 @@ def product_detail(request, pk):
     return render(request, 'stock/product_detail.html', context)
 
 
-class UpdateStock(UpdateView):
+class UpdateStock(SuccessMessageMixin, UpdateView):
     """
     Update stock
     """
@@ -234,30 +240,40 @@ class UpdateStock(UpdateView):
     template_name = 'stock/update_stock.html'
     form_class = StockForm
     success_url = reverse_lazy('stock')
+    success_message = "Stock updated."
 
 
-class DeleteStockView(DeleteView):
+class DeleteStockView(SuccessMessageMixin, DeleteView):
     """
     Delete an item from stock model
     """
     model = Stock
     template_name = 'stock/delete_stock.html'
-    success_url = reverse_lazy('stock')
+
+    def get_success_url(self):
+        messages.success(self.request, "Item deleted.")
+        return reverse_lazy('stock')
 
 
-class DeletePartView(DeleteView):
+class DeletePartView(SuccessMessageMixin, DeleteView):
     """
     Delete a part from part model
     """
     model = Parts
     template_name = 'stock/delete_part.html'
-    success_url = reverse_lazy('products')
+
+    def get_success_url(self):
+        messages.success(self.request, "Product item deleted.")
+        return reverse_lazy('products')
 
 
-class DeleteProductView(DeleteView):
+class DeleteProductView(SuccessMessageMixin, DeleteView):
     """
     Delete aproduct from product model
     """
     model = Product
     template_name = 'stock/delete_product.html'
-    success_url = reverse_lazy('products')
+
+    def get_success_url(self):
+        messages.success(self.request, "Product deleted.")
+        return reverse_lazy('products')

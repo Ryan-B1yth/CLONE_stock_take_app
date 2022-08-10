@@ -1,3 +1,5 @@
+$('.toast').toast('show');
+
 function firstDropdown() {
     $(this).next('div').slideToggle()
 }
