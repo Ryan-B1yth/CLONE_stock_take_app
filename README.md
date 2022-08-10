@@ -3,7 +3,9 @@
 ![4 size view of the website's home page](static/assets/images/4_screen_view.PNG)
 
 <!-- Description -->
-Take Stock is a data handling app for small buisnesses to take care of their stock and product information. A company can create a profile, add stock items, add products, and then link stock items to each product. The app will then tell the user exactly how many of each product they can make based on what they have in stock. 
+Take Stock is a data handling app for small buisnesses to take care of their stock and product information. A company can create a profile, add stock items, add products, and then link stock items to each product. The app will then tell the user exactly how many of each product they can make based on what they have in stock. This project was created as a submission for Code Institute. This repository is a clone repo, not the original development environment.
+
+- You can view the live site [here](https://take-stock-app-v2.herokuapp.com/).
 
 # Contents
 - [**User Experience (UX)**](#user-experience-ux)
@@ -19,14 +21,15 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 - [**Future updates**](#future-updates)
 - [**Languages used**](#languages-used)
 - [**Frameworks used**](#frameworks-used)
--[**Agile Development**](#agile-development)
+- [**Agile Development**](#agile-development)
 - [**Testing**](#testing)
-  - [**Further testing**](#further-testing)
+- [**Database structre**](#database-structure)
 - [**Deployment**](#deployment)
 - [**Credits**](#credits)
   - [**Code**](#code)
   - [**Content**](#content)
   - [**Acknowledgements**](#acknowledgements)
+
 ## **User Experience (UX)**
 
 ### **User Stories / Epics** 
@@ -112,7 +115,6 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 <img src="static/assets/wireframes/admin.jpg" style="max-height: 300px;">
 
-
 <!-- HTML used instead of markdown to control image size as images were very large when testing. -->
 
 ## **Features**
@@ -129,7 +131,6 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 <img src="staticfiles/assets/images/home_page_1.PNG" style="max-height: 300px;">
 
 <img src="staticfiles/assets/images/home_page_2.PNG" style="max-height: 300px;">
-
 
 ### **Stock page** 
 
@@ -184,14 +185,42 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 ## **Agile development**
 
-- The project was constructed using Agile methodology, as can be seen in the GitHub repository's Projects section. 
+- The project was constructed using Agile methodology, as can be seen in the GitHub repository's [Projects](https://github.com/Ryan-B1yth/stock_take_app/projects/1) section. As this repository is a clone of the original to allow for further development after submission, the project's kanban board is not located in this repo.
 
 ## **Testing**
 
 You can read through the testing documentation [here](static/docs/TESTING.md).
 
+## **Database structure**
+
+|--CLONE_stock_take_app
+|  |--take-stock
+|    |--__init__.py
+|    |--asgi.py
+|    |--settings.py
+|    |--urls.py
+|    |--views.py
+|    |--wsgi.py
+|  |--app
+|    |--__init__.py
+|    |--admin.py
+|    |--apps.py
+|    |--forms.py
+|    |--models.py
+|    |--urls.py
+|    |--views.py
+|  |--templates
+|    |--app
+|      |--index.html
+|  |--static
+|    |--css
+|      |--index.css
+|    |--js
+|      |--index.js
+
+- The chosen file structure for this project, in terms of template location, was project level. This allowed for all HTML to be kept in a single directory and easily locatable - in a similar way to how CSS and JS files are located at project level in the static directory.
+
 ## **Deployment** 
-<!-- Heroku deployment here -->
 - The project was deployed on Heroku through the CLI following Code Institute's instructions. During development there was a data breach with GitHub and subsequently, Heroku limited its connection to the platform. As such, the steps taken to deploy the project were as follows:
   - Install:
     - pyscopg2-binary
@@ -214,8 +243,8 @@ You can read through the testing documentation [here](static/docs/TESTING.md).
     - Create a SECRET_KEY variable that is different to the Heroku secret key.
     - Create a DEVELOPMENT variable equal to `True`.
   - In settings.py:
-    
-        SECRET_KEY = os.environ.get('SECRET_KEY', ' ')
+    ```
+        SECRET_KEY = os.environ.get('SECRET_KEY')
 
         development = os.environ.get('DEVELOPMENT', False)
         DEBUG = development
@@ -239,13 +268,10 @@ You can read through the testing documentation [here](static/docs/TESTING.md).
             DATABASES = {
                 'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
             }
-
+    ```
 
   - Add, commit with the message "Prepare to push to Heroku, set up development environment", and push to GitHub.
   - Push to heroku with `git push heroku main`.
-
-
-- You can view the live site [here](https://take-stock-app-v2.herokuapp.com/).
 
 ## **Credits** 
 
@@ -258,7 +284,7 @@ You can read through the testing documentation [here](static/docs/TESTING.md).
 
 - Content
   - All template files were written by the developer.
-  - User information is written by said respective user.
+  - User information is written by each respective user.
 
 ### **Acknowledgements**
     
