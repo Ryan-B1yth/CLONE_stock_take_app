@@ -7,7 +7,6 @@ import dj_database_url
 if os.path.isfile('env.py'):
     import env
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 # BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -21,8 +20,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 development = os.environ.get('DEVELOPMENT', False)
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = development
-
+DEBUG = True
 
 if development:
     ALLOWED_HOSTS = ['localhost', '127.0.0.1']
@@ -31,7 +29,6 @@ else:
     ALLOWED_HOSTS = [
         'take-stock-app-v2.herokuapp.com'
     ]
-
 
 # Application definition
 
