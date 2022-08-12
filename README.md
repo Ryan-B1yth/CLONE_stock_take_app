@@ -23,7 +23,9 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 - [**Frameworks used**](#frameworks-used)
 - [**Agile Development**](#agile-development)
 - [**Testing**](#testing)
-- [**Database structre**](#database-structure)
+- [**Structre**](#structure)
+  - [**Database structure**](#database-structure)
+  - [**Project structure**](#project-structure)
 - [**Deployment**](#deployment)
 - [**Credits**](#credits)
   - [**Code**](#code)
@@ -44,26 +46,26 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
   - Login/logout should be quick and easy.
          
 - First time visitor goals:
-  - Have the first visit easily explain the site, how it works, what it can do, etc.
-  - Have the app be easy to navigate and intuitive to use.
-  - Be able to sign up for an account as easily as possible.
+1. Have the first visit easily explain the site, how it works, what it can do, etc.
+2. Have the app be easy to navigate and intuitive to use.
+3. Be able to sign up for an account as easily as possible.
 
 - Returning visitor goals:
-  - Be able to login and see data stored from previous visits.
-  - Be able to easily login and view my data.
+4. Be able to login and see data stored from previous visits.
+5. Be able to easily login and view my data.
 
 - Frequent user goals:
-  - Be able to quickly see what I have in stock and how many products I can make.
-  - Be able to add new products and/or stock quickly and easily and see that
+6. Be able to quickly see what I have in stock and how many products I can make.
+7. Be able to add new products and/or stock quickly and easily and see that
     immediately reflected in the interface.
 
 - Admin user goals:
-  - Have access to other user data to be able to check for and remove objectionable inputs.
+8. Have access to other user data to be able to check for and remove objectionable inputs.
 
 - Site owner goals: 
-  - Have the interface be easy to navigate and reflect recent actions to the user. 
-  - Show the user exactly how many of each product they can make.
-  - Have user data be only accessable to that specific user.
+9. Have the interface be easy to navigate and reflect recent actions to the user. 
+10. Show the user exactly how many of each product they can make.
+11. Have user data be only accessable to that specific user.
 
 - User acceptance: 
   - Stock list and product list implemented.
@@ -191,8 +193,32 @@ Take Stock is a data handling app for small buisnesses to take care of their sto
 
 You can read through the testing documentation [here](static/docs/TESTING.md).
 
-## **Database structure**
+## **Structure** 
 
+### **Database structure**
+
+#### Stock model
+
+| name | code | number_in_stock | company |
+| --- | --- | --- | --- |
+| CharField | CharField | IntegerField | ForeignKey(User) |
+
+#### Product model 
+
+| name | stock_parts | company | 
+| --- | --- | --- |
+| CharField | ManyToManyField(Stock) | ForeignKey(User) | 
+
+#### Parts model 
+
+| product_part_belongs_to | item | number_required | company |
+| --- | --- | --- | --- | 
+| ForeignKey(Product) | ForeignKey(Stock) | IntegerField | ForeignKey(User)
+
+- The descision to have each model contain a company column was made to shorten the amount of code written in views and templates. It seemed more logical to have the field be auto set in each form instance - not under the users control - than to, when referencing the company when the parts model is called, to have the code read ```parts.product_part_belongs_to.stock_parts.company``` instead of the much easier to understand ```parts.company```.
+
+### **Project structure**
+```
 |--CLONE_stock_take_app
 |  |--take-stock
 |    |--__init__.py
@@ -217,6 +243,7 @@ You can read through the testing documentation [here](static/docs/TESTING.md).
 |      |--index.css
 |    |--js
 |      |--index.js
+```
 
 - The chosen file structure for this project, in terms of template location, was project level. This allowed for all HTML to be kept in a single directory and easily locatable - in a similar way to how CSS and JS files are located at project level in the static directory.
 

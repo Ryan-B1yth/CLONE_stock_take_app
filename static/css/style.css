@@ -29,6 +29,10 @@ body {
     overflow-x: hidden;
 }
 
+.underline:hover {
+    text-decoration: underline;
+}
+
 h1, .center, .add-new {
     width: max-content;
     margin: 1em auto;

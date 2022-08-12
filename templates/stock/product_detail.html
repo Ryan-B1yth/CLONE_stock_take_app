@@ -35,7 +35,7 @@
                         <h3>{{ part.item.number_in_stock }}</h3>
                     </div>
                     <div class="update">
-                        <h3><a href="{% url 'delete-part' part.id %}">Remove</a></h3>
+                        <h3><a class="underline" href="{% url 'delete-part' part.id %}">Remove</a></h3>
                     </div>
                 </div>
             {% endfor %}
