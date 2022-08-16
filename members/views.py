@@ -4,6 +4,7 @@ Imports
 from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse_lazy
+from django.contrib import messages
 from django.contrib.auth.views import PasswordChangeView, LoginView
 from .forms import LoginForm, SignUpForm, EditProfileForm, ChangePasswordForm
 
@@ -23,7 +24,10 @@ class UserRegisterView(generic.CreateView):
     """
     form_class = SignUpForm
     template_name = 'registration/registration.html'
-    success_url = reverse_lazy('login')
+
+    def get_success_url(self):
+        messages.success(self.request, "Registration complete, please log in.")
+        return reverse_lazy('login')
 
 
 class UserEditView(generic.UpdateView):
@@ -32,10 +36,13 @@ class UserEditView(generic.UpdateView):
     """
     form_class = EditProfileForm
     template_name = 'registration/edit_profile.html'
-    success_url = reverse_lazy('home')
 
     def get_object(self):
         return self.request.user
+
+    def get_success_url(self):
+        messages.success(self.request, "Information change complete.")
+        return reverse_lazy('home')
 
 
 class ChangePasswordView(PasswordChangeView):
@@ -44,7 +51,10 @@ class ChangePasswordView(PasswordChangeView):
     """
     form_class = ChangePasswordForm
     template_name = 'registration/change_password.html'
-    success_url = reverse_lazy('password_reset_success')
+
+    def get_success_url(self):
+        messages.success(self.request, "Password changed.")
+        return reverse_lazy('password_reset_success')
 
 
 def password_reset_success(request):
