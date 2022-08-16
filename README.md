@@ -254,6 +254,7 @@ You can read through the testing documentation [here](static/docs/TESTING.md).
     - gunicorn
     - dj-database-url
     - whitenoise
+      - Whitenoise was used instead of the method taught on the course as it allows for the app to serve it's own static files without having to rely on external resources and is recommended for use with apps deployed on Heroku. As such, all static files are collected and stored in a directory called ```staticfiles``` in the repo when running the command ```python3 manage.py collectstatic```, however all the original static files can be found in the ```static``` directory.
 
  In the CLI, enter following commands:
   - `heroku login -i`

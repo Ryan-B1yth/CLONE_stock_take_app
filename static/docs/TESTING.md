@@ -9,7 +9,7 @@
 ![Take stock coverage report](../assets/images/coverage_report.PNG)
 
 ### URLs  
-- Automated tests ensured that each page resolved to the correct location. URLs that required arguments to resolve where tested manually using multiple users to ensure they could only access pages with their data on it.
+- Automated tests ensured that each page resolved to the correct location. URLs that required arguments to resolve were tested manually using multiple users to ensure they could only access pages with their data on it.
 
 ### Views
 - Automated tests tested for GET requests only. POST request were tested manually.
@@ -131,7 +131,7 @@
 
 ## Validators
 
-- The original project was constructed on a laptop with a screen size of 12.3 inches. The code was put through validators and passed through without any issues. Not all results of validation are shown as they all render the same results, however soome are shown for each type of file.
+- The original project was constructed on a laptop with a screen size of 12.3 inches. The code was put through validators and passed through without any issues. Not all results of validation are shown as they all render the same results, however some are shown for each type of file.
 
   - [W3C Markup Validator](https://validator.w3.org/)
 
@@ -155,6 +155,8 @@
 ### Known bugs
 
 - Small CSS issue on the logged out homescreen where the green banner overflows the body. No content is lost and so has remained.
+
+- On really small screens, the grids / tables of user information can be a little hard to read. All sections of the table are scrollable so all the information can be accessed but it's not the cleanest looking interface. This would need to be addressed in further developement.
 
 ### Google Lighthouse
 - Google Chrome's DevTools Lighthouse:
