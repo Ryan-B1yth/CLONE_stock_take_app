@@ -17,7 +17,7 @@ def home(request):
     """
     Home page
     """
-    return render(request, 'stock/home.html', {})
+    return render(request, 'stock/index.html', {})
 
 
 def admin_view(request):
